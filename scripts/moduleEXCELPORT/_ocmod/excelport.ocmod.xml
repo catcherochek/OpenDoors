@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name><![CDATA[ExcelPort]]></name>
+	<code><![CDATA[isense_excelport_2]]></code>
+	<version><![CDATA[2.2.1]]></version>
+	<author><![CDATA[iSenseLabs]]></author>
+	<link><![CDATA[http://isenselabs.com]]></link>
+	<file path="admin/view/template/catalog/product_list.tpl">
+		<operation>
+			<search><![CDATA[<i class="fa fa-copy"></i></button>]]></search>
+			<add position="after"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/catalog/category.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/catalog/category_list.tpl">
+		<operation>
+			<search><![CDATA[<a href="<?php echo $repair; ?>" data-toggle="tooltip" title="<?php echo $button_rebuild; ?>" class="btn btn-default"><i class="fa fa-refresh"></i></a>]]></search>
+			<add position="replace"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> <a href="<?php echo $repair; ?>" data-toggle="tooltip" title="<?php echo $button_rebuild; ?>" class="btn btn-default"><i class="fa fa-refresh"></i></a>
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/catalog/option.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/catalog/option_list.tpl">
+		<operation>
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-option').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/catalog/attribute.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/catalog/attribute_list.tpl">
+		<operation>
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-attribute').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/catalog/attribute_group.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/catalog/attribute_group_list.tpl">
+		<operation>
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-attribute-group').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/sale/customer.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/sale/customer_list.tpl">
+		<operation>
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-customer').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/sale/customer_group.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/sale/customer_group_list.tpl">
+		<operation>
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-customer-group').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+
+    <file path="admin/controller/customer/customer.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/customer/customer_list.tpl">
+        <operation>
+            <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-customer').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+            <add position="before"><![CDATA[
+                <a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/customer/customer_group.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/customer/customer_group_list.tpl">
+        <operation>
+            <search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_delete; ?>" class="btn btn-danger" onclick="confirm('<?php echo $text_confirm; ?>') ? $('#form-customer-group').submit() : false;"><i class="fa fa-trash-o"></i></button>]]></search>
+            <add position="before"><![CDATA[
+                <a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file path="admin/controller/sale/order.php">
+        <operation>
+            <search><![CDATA[$data['text_list'] = $this->language->get('text_list');]]></search>
+            <add position="before"><![CDATA[
+                $data['token'] = $this->session->data['token'];
+            ]]></add>
+        </operation>
+    </file>
+	<file path="admin/view/template/sale/order_list.tpl">
+		<operation>
+			<search><![CDATA[<a href="<?php echo $add; ?>" data-toggle="tooltip" title="<?php echo $button_add; ?>" class="btn btn-primary"><i class="fa fa-plus"></i></a>]]></search>
+			<add position="before"><![CDATA[
+				<a href="index.php?route=module/excelport&token=<?php echo $token; ?>" class="btn btn-info" data-toggle="tooltip" title="Export / Import"><i class="fa fa-file-excel-o"></i></a> 
+			]]></add>
+		</operation>
+	</file>
+</modification>
