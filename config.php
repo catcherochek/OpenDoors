@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost/oc2/');
+define('HTTP_SERVER', 'http://10.10.10.110/oc2/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost/oc2/');
+define('HTTPS_SERVER', 'http://10.10.10.110/oc2/');
 
 // DIR
 define('DIR_APPLICATION', 'C:/wamp/www/oc2/catalog/');

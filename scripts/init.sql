@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 22 2018 г., 08:09
+-- Время создания: Май 22 2018 г., 11:51
 -- Версия сервера: 5.7.21
 -- Версия PHP: 7.1.16
 
@@ -550,75 +550,75 @@ CREATE TABLE IF NOT EXISTS `oc_category_path` (
 
 INSERT INTO `oc_category_path` (`category_id`, `path_id`, `level`) VALUES
 (25, 25, 0),
-(28, 25, 0),
 (28, 28, 1),
-(35, 25, 0),
-(35, 28, 1),
+(28, 25, 0),
 (35, 35, 2),
-(36, 25, 0),
-(36, 28, 1),
+(35, 28, 1),
+(35, 25, 0),
 (36, 36, 2),
-(29, 25, 0),
+(36, 28, 1),
+(36, 25, 0),
 (29, 29, 1),
-(30, 25, 0),
+(29, 25, 0),
 (30, 30, 1),
-(31, 25, 0),
+(30, 25, 0),
 (31, 31, 1),
-(32, 25, 0),
+(31, 25, 0),
 (32, 32, 1),
+(32, 25, 0),
 (20, 20, 0),
-(27, 20, 0),
 (27, 27, 1),
-(26, 20, 0),
+(27, 20, 0),
 (26, 26, 1),
+(26, 20, 0),
 (24, 24, 0),
 (18, 18, 0),
-(45, 18, 0),
 (45, 45, 1),
-(46, 18, 0),
+(45, 18, 0),
 (46, 46, 1),
+(46, 18, 0),
 (17, 17, 0),
 (33, 33, 0),
 (34, 34, 0),
-(37, 34, 0),
 (37, 37, 1),
-(38, 34, 0),
+(37, 34, 0),
 (38, 38, 1),
-(39, 34, 0),
+(38, 34, 0),
 (39, 39, 1),
-(40, 34, 0),
+(39, 34, 0),
 (40, 40, 1),
-(41, 34, 0),
+(40, 34, 0),
 (41, 41, 1),
-(42, 34, 0),
+(41, 34, 0),
 (42, 42, 1),
-(43, 34, 0),
+(42, 34, 0),
 (43, 43, 1),
-(44, 34, 0),
+(43, 34, 0),
 (44, 44, 1),
-(47, 34, 0),
+(44, 34, 0),
 (47, 47, 1),
-(48, 34, 0),
+(47, 34, 0),
 (48, 48, 1),
-(49, 34, 0),
+(48, 34, 0),
 (49, 49, 1),
-(50, 34, 0),
+(49, 34, 0),
 (50, 50, 1),
-(51, 34, 0),
+(50, 34, 0),
 (51, 51, 1),
-(52, 34, 0),
+(51, 34, 0),
 (52, 52, 1),
-(58, 34, 0),
-(58, 52, 1),
+(52, 34, 0),
 (58, 58, 2),
-(53, 34, 0),
+(58, 52, 1),
+(58, 34, 0),
 (53, 53, 1),
-(54, 34, 0),
+(53, 34, 0),
 (54, 54, 1),
-(55, 34, 0),
+(54, 34, 0),
 (55, 55, 1),
-(56, 34, 0),
+(55, 34, 0),
 (56, 56, 1),
+(56, 34, 0),
 (57, 57, 0);
 
 -- --------------------------------------------------------
@@ -826,7 +826,7 @@ CREATE TABLE IF NOT EXISTS `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Рубль', 'RUB', '', 'р.', '0', 1.00000000, 1, '2014-09-09 12:27:55');
+(1, 'Рубль', 'RUB', '', 'р.', '0', 1.00000000, 1, '2018-05-22 08:51:13');
 
 -- --------------------------------------------------------
 
@@ -1198,7 +1198,7 @@ CREATE TABLE IF NOT EXISTS `oc_extension` (
   `type` varchar(32) NOT NULL,
   `code` varchar(32) NOT NULL,
   PRIMARY KEY (`extension_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `oc_extension`
@@ -1232,7 +1232,8 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (25, 'dashboard', 'online'),
 (26, 'dashboard', 'map'),
 (27, 'dashboard', 'customer'),
-(28, 'dashboard', 'chart');
+(28, 'dashboard', 'chart'),
+(29, 'module', 'ocfilter');
 
 -- --------------------------------------------------------
 
@@ -1476,7 +1477,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout_module` (
   `position` varchar(14) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`layout_module_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `oc_layout_module`
@@ -1491,8 +1492,8 @@ INSERT INTO `oc_layout_module` (`layout_module_id`, `layout_id`, `code`, `positi
 (67, 1, 'carousel.29', 'content_top', 3),
 (66, 1, 'slideshow.27', 'content_top', 1),
 (65, 1, 'featured.28', 'content_top', 2),
-(72, 3, 'category', 'column_left', 1),
-(73, 3, 'banner.30', 'column_left', 2);
+(75, 3, 'banner.30', 'column_left', 2),
+(74, 3, 'ocfilter', 'column_left', 1);
 
 -- --------------------------------------------------------
 
@@ -1507,7 +1508,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout_route` (
   `store_id` int(11) NOT NULL,
   `route` varchar(64) NOT NULL,
   PRIMARY KEY (`layout_route_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `oc_layout_route`
@@ -1516,7 +1517,7 @@ CREATE TABLE IF NOT EXISTS `oc_layout_route` (
 INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `route`) VALUES
 (38, 6, 0, 'account/%'),
 (17, 10, 0, 'affiliate/%'),
-(44, 3, 0, 'product/category'),
+(54, 3, 0, 'product/category'),
 (42, 1, 0, 'common/home'),
 (20, 2, 0, 'product/product'),
 (24, 11, 0, 'information/information'),
@@ -1728,7 +1729,15 @@ CREATE TABLE IF NOT EXISTS `oc_modification` (
   `status` tinyint(1) NOT NULL,
   `date_added` datetime NOT NULL,
   PRIMARY KEY (`modification_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `oc_modification`
+--
+
+INSERT INTO `oc_modification` (`modification_id`, `name`, `code`, `author`, `version`, `link`, `xml`, `status`, `date_added`) VALUES
+(1, 'Local copy OCMOD by iSenseLabs', 'isensealabs_quickfix_ocmod', 'iSenseLabs', '1.3', 'http://isenselabs.com', '<modification>\r\n    <name>Local copy OCMOD by iSenseLabs</name>\r\n	<version>1.3</version>\r\n	<link>http://isenselabs.com</link>\r\n	<author>iSenseLabs</author>\r\n	<code>isensealabs_quickfix_ocmod</code>\r\n\r\n	<file path=\"admin/controller/extension/installer.php\">\r\n		<operation error=\"skip\">\r\n			<search ><![CDATA[\'url\'  => str_replace(\'&amp;\', \'&\', $this->url->link(\'extension/installer/ftp\', \'token=\' . $this->session->data[\'token\'],]]></search>\r\n			<add position=\"replace\"><![CDATA[\'url\'  => str_replace(\'&amp;\', \'&\', $this->url->link(\'extension/installer/localcopy\', \'token=\' . $this->session->data[\'token\'],]]></add>\r\n		</operation>\r\n\r\n		<operation>\r\n			<search><![CDATA[public function unzip() {]]></search>\r\n			<add position=\"before\"><![CDATA[			\r\n	public function localcopy() {\r\n		$this->load->language(\'extension/installer\');\r\n\r\n		$json = array();\r\n\r\n		if (!$this->user->hasPermission(\'modify\', \'extension/installer\')) {\r\n			$json[\'error\'] = $this->language->get(\'error_permission\');\r\n		}\r\n\r\n		if (VERSION == \'2.0.0.0\') {\r\n		    $directory = DIR_DOWNLOAD  . str_replace(array(\'../\', \'..\\\\\', \'..\'), \'\', $this->request->post[\'path\']) . \'/upload/\';\r\n		} else {\r\n		    $directory = DIR_UPLOAD  . str_replace(array(\'../\', \'..\\\\\', \'..\'), \'\', $this->request->post[\'path\']) . \'/upload/\';\r\n		}\r\n\r\n		if (!is_dir($directory)) {\r\n			$json[\'error\'] = $this->language->get(\'error_directory\');\r\n		}\r\n\r\n		if (!$json) {\r\n			// Get a list of files ready to upload\r\n			$files = array();\r\n\r\n			$path = array($directory . \'*\');\r\n\r\n			while (count($path) != 0) {\r\n				$next = array_shift($path);\r\n\r\n				foreach (glob($next) as $file) {\r\n					if (is_dir($file)) {\r\n						$path[] = $file . \'/*\';\r\n					}\r\n\r\n					$files[] = $file;\r\n				}\r\n			}\r\n\r\n			$root = dirname(DIR_APPLICATION).\'/\';\r\n\r\n			foreach ($files as $file) {\r\n				// Upload everything in the upload directory\r\n				$destination = substr($file, strlen($directory));\r\n\r\n				// Update from newer OpenCart versions:\r\n				if (substr($destination, 0, 5) == \'admin\') {\r\n					$destination = DIR_APPLICATION . substr($destination, 5);\r\n				} else if (substr($destination, 0, 7) == \'catalog\') {\r\n					$destination = DIR_CATALOG . substr($destination, 7);\r\n				} else if (substr($destination, 0, 5) == \'image\') {\r\n					$destination = DIR_IMAGE . substr($destination, 5);\r\n				} else if (substr($destination, 0, 6) == \'system\') {\r\n					$destination = DIR_SYSTEM . substr($destination, 6);\r\n				} else {\r\n					$destination = $root.$destination;\r\n				}\r\n\r\n				if (is_dir($file)) {\r\n					if (!file_exists($destination)) {\r\n						if (!mkdir($destination)) {\r\n							$json[\'error\'] = sprintf($this->language->get(\'error_ftp_directory\'), $destination);\r\n						}\r\n					}\r\n				}\r\n\r\n				if (is_file($file)) {\r\n					if (!copy($file, $destination)) {\r\n						$json[\'error\'] = sprintf($this->language->get(\'error_ftp_file\'), $file);\r\n					}\r\n				}\r\n			}\r\n		}\r\n\r\n		$this->response->addHeader(\'Content-Type: application/json\');\r\n		$this->response->setOutput(json_encode($json));\r\n	}]]></add>\r\n		</operation>\r\n	</file>	\r\n</modification>\r\n', 1, '2018-05-22 11:44:56'),
+(2, 'OCFilter Modification', 'ocfilter-product-filter', 'Aleksandr Surutkovich', '4.19', 'http://ocfilter.com', '<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<modification>\r\n  <name>OCFilter Modification</name>\r\n  <code>ocfilter-product-filter</code>\r\n  <version>4.19</version>\r\n  <author>Aleksandr Surutkovich</author>\r\n  <link>http://ocfilter.com</link>\r\n\r\n  <!--\r\n  **\r\n  **\r\n  ********* ADMIN **********\r\n  **\r\n  **\r\n  -->\r\n\r\n  <!-- CONTROLLERS -->\r\n\r\n	<file path=\"admin/controller/catalog/product.php\">\r\n    <operation>\r\n      <search><![CDATA[function getForm() {]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n    // OCFilter start\r\n    $this->document->addStyle(\'view/stylesheet/ocfilter/ocfilter.css\');\r\n    $this->document->addScript(\'view/javascript/ocfilter/ocfilter.js\');\r\n    // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n    <operation>\r\n      <search><![CDATA[$data[\'tab_general\'] = $this->language->get(\'tab_general\');]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n    // OCFilter start\r\n    $data[\'tab_ocfilter\'] = $this->language->get(\'tab_ocfilter\');\r\n    $data[\'entry_values\'] = $this->language->get(\'entry_values\');\r\n    $data[\'ocfilter_select_category\'] = $this->language->get(\'ocfilter_select_category\');\r\n    // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/controller/catalog/product.php -->\r\n\r\n	<file path=\"admin/controller/common/column_left.php\">\r\n    <operation>\r\n      <search><![CDATA[if ($this->user->hasPermission(\'access\', \'catalog/filter\')) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      // OCFilter start\r\n			if ($this->user->hasPermission(\'access\', \'catalog/ocfilter\')) {\r\n				$catalog[] = array(\r\n					\'name\'	   => $this->language->get(\'text_ocfilter\'),\r\n					\'href\'     => $this->url->link(\'catalog/ocfilter\', \'token=\' . $this->session->data[\'token\'], true),\r\n					\'children\' => array()\r\n				);\r\n			}\r\n		  // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/controller/common/column_left.php -->\r\n\r\n  <!-- LANGUAGES -->\r\n\r\n	<file path=\"admin/language/{english,en-gb,en-us}/catalog/product.php\">\r\n    <operation>\r\n      <search><![CDATA[$_[\'text_success\']]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n// OCFilter start\r\n$_[\'entry_values\']          		= \'Add the values ​​for this option.\';\r\n$_[\'tab_ocfilter\']          		= \'OCFilter Options\';\r\n$_[\'ocfilter_select_category\'] 	= \'To start, select a category for this product.\';\r\n// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/language/english/catalog/product.php -->\r\n\r\n	<file path=\"admin/language/{english,en-gb,en-us}/common/column_left.php\">\r\n    <operation>\r\n      <search><![CDATA[$_[\'text_option\']]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n// OCFilter start\r\n$_[\'text_ocfilter\'] = \'Product Filter OCFilter\';\r\n// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/language/english/common/column_left.php -->\r\n\r\n	<file path=\"admin/language/{russian,ru,ru-ru}/catalog/product.php\">\r\n    <operation>\r\n      <search><![CDATA[$_[\'text_success\']]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n// OCFilter start\r\n$_[\'entry_values\']          		= \'Добавьте значения для этой опции.\';\r\n$_[\'tab_ocfilter\']          		= \'Опции фильтра\';\r\n$_[\'ocfilter_select_category\'] 	= \'Для начала, выберите категории для этого товара.\';\r\n// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/language/russian/catalog/product.php -->\r\n\r\n	<file path=\"admin/language/{russian,ru,ru-ru}/common/column_left.php\">\r\n    <operation>\r\n      <search><![CDATA[$_[\'text_option\']]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n// OCFilter start\r\n$_[\'text_ocfilter\'] = \'Фильтр товаров OCFilter\';\r\n// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/language/russian/common/column_left.php -->\r\n\r\n  <!-- MODELS -->\r\n\r\n	<file path=\"admin/model/catalog/product.php\">\r\n    <operation>\r\n      <search><![CDATA[if (isset($data[\'image\'])) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n    // OCFilter start\r\n    $this->db->query(\"DELETE FROM \" . DB_PREFIX . \"ocfilter_option_value_to_product WHERE product_id = \'\" . (int)$product_id . \"\'\");\r\n		$this->db->query(\"DELETE FROM \" . DB_PREFIX . \"ocfilter_option_value_to_product_description WHERE product_id = \'\" . (int)$product_id . \"\'\");\r\n\r\n		if (isset($data[\'ocfilter_product_option\'])) {\r\n			foreach ($data[\'ocfilter_product_option\'] as $option_id => $values) {\r\n				foreach ($values[\'values\'] as $value_id => $value) {\r\n					if (isset($value[\'selected\'])) {\r\n						$this->db->query(\"INSERT INTO \" . DB_PREFIX . \"ocfilter_option_value_to_product SET product_id = \'\" . (int)$product_id . \"\', option_id = \'\" . (int)$option_id . \"\', value_id = \'\" . (string)$value_id . \"\', slide_value_min = \'\" . (isset($value[\'slide_value_min\']) ? (float)$value[\'slide_value_min\'] : 0) . \"\', slide_value_max = \'\" . (isset($value[\'slide_value_max\']) ? (float)$value[\'slide_value_max\'] : 0) . \"\'\");\r\n\r\n						foreach ($value[\'description\'] as $language_id => $description) {\r\n							if (trim($description[\'description\'])) {\r\n								$this->db->query(\"INSERT INTO \" . DB_PREFIX . \"ocfilter_option_value_to_product_description SET product_id = \'\" . (int)$product_id . \"\', option_id = \'\" . (int)$option_id . \"\', value_id = \'\" . (string)$value_id . \"\', language_id = \'\" . (int)$language_id . \"\', description = \'\" . $this->db->escape($description[\'description\']) . \"\'\");\r\n							}\r\n						}\r\n					}\r\n				}\r\n			}\r\n		}\r\n		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n    <operation>\r\n      <search><![CDATA[\r\n      $data[\'product_attribute\'] = $this->getProductAttributes($product_id);\r\n      ]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n 		// OCFilter start\r\n		$this->load->model(\'catalog/ocfilter\');\r\n		$data[\'ocfilter_product_option\'] = $this->model_catalog_ocfilter->getProductOCFilterValues($product_id);\r\n		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n    <operation>\r\n      <search><![CDATA[\r\n      $this->db->query(\"DELETE FROM \" . DB_PREFIX . \"product WHERE product_id = \'\" . (int)$product_id . \"\'\");\r\n      ]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n		// OCFilter start\r\n		$this->db->query(\"DELETE FROM \" . DB_PREFIX . \"ocfilter_option_value_to_product WHERE product_id = \'\" . (int)$product_id . \"\'\");\r\n		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/model/catalog/product.php -->\r\n\r\n  <!-- VIEW -->\r\n\r\n	<file path=\"admin/view/template/catalog/product_form.tpl\">\r\n    <operation>\r\n      <search index=\"0\"><![CDATA[<script type=\"text/javascript\"><!--]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n  <!-- OCFilter start -->\r\n  <script type=\"text/javascript\"><!--\r\n  ocfilter.php = {\r\n  	text_select: \'<?php echo $text_select; ?>\',\r\n  	ocfilter_select_category: \'<?php echo $ocfilter_select_category; ?>\',\r\n  	entry_values: \'<?php echo $entry_values; ?>\',\r\n  	tab_ocfilter: \'<?php echo $tab_ocfilter; ?>\'\r\n  };\r\n\r\n  ocfilter.php.languages = [];\r\n\r\n  <?php foreach ($languages as $language) { ?>\r\n  ocfilter.php.languages.push({\r\n  	\'language_id\': <?php echo $language[\'language_id\']; ?>,\r\n  	\'name\': \'<?php echo $language[\'name\']; ?>\',\r\n    \'image\': \'<?php echo $language[\'image\']; ?>\'\r\n  });\r\n  <?php } ?>\r\n\r\n  //--></script>\r\n  <!-- OCFilter end -->\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/view/template/catalog/product_form.tpl -->\r\n\r\n	<file path=\"admin/view/template/editors/product/product_form.tpl\">\r\n    <operation>\r\n      <search index=\"0\"><![CDATA[<script type=\"text/javascript\"><!--]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n  <!-- OCFilter start -->\r\n  <script type=\"text/javascript\"><!--\r\n  ocfilter.php = {\r\n  	text_select: \'<?php echo $text_select; ?>\',\r\n  	ocfilter_select_category: \'<?php echo $ocfilter_select_category; ?>\',\r\n  	entry_values: \'<?php echo $entry_values; ?>\',\r\n  	tab_ocfilter: \'<?php echo $tab_ocfilter; ?>\'\r\n  };\r\n\r\n  ocfilter.php.languages = [];\r\n\r\n  <?php foreach ($languages as $language) { ?>\r\n  ocfilter.php.languages.push({\r\n  	\'language_id\': <?php echo $language[\'language_id\']; ?>,\r\n  	\'name\': \'<?php echo $language[\'name\']; ?>\',\r\n    \'image\': \'<?php echo $language[\'image\']; ?>\'\r\n  });\r\n  <?php } ?>\r\n\r\n  //--></script>\r\n  <!-- OCFilter end -->\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /admin/view/template/editors/product/product_form.tpl -->\r\n\r\n  <!--\r\n  **\r\n  **\r\n  ********* CATALOG **********\r\n  **\r\n  **\r\n  -->\r\n\r\n	<file path=\"catalog/controller/startup/maintenance.php\">\r\n    <operation>\r\n      <search><![CDATA[index() {]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n    // OCFilter start\r\n    $this->load->controller(\'extension/module/ocfilter/initialise\');\r\n    // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/controller/startup/maintenance.php -->\r\n\r\n	<file path=\"catalog/controller/startup/seo_url.php\">\r\n    <operation>\r\n      <search><![CDATA[$this->url->addRewrite($this);]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n      // OCFilter start\r\n      if (!is_null($this->registry->get(\'ocfilter\'))) {\r\n  			$this->url->addRewrite($this->registry->get(\'ocfilter\'));\r\n  		}\r\n      // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/controller/startup/seo_url.php -->\r\n\r\n	<file path=\"catalog/controller/startup/seo_pro.php\">\r\n    <operation>\r\n      <search><![CDATA[$this->url->addRewrite($this);]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n      // OCFilter start\r\n      if (!is_null($this->registry->get(\'ocfilter\'))) {\r\n  			$this->url->addRewrite($this->registry->get(\'ocfilter\'));\r\n  		}\r\n      // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/controller/startup/seo_pro.php -->\r\n\r\n	<file path=\"catalog/model/catalog/product.php\">\r\n    <operation>\r\n      <search><![CDATA[if (!empty($data[\'filter_manufacturer_id\'])) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n		// OCFilter start\r\n		if (!empty($data[\'filter_ocfilter\'])) {\r\n      $this->load->config(\'ocfilter\');\r\n      $this->load->model(\'catalog/ocfilter\');\r\n\r\n      $ocfilter_product_sql = $this->model_catalog_ocfilter->getProductSQL($data[\'filter_ocfilter\']);\r\n\r\n			if ($ocfilter_product_sql) {\r\n			  $sql .= $ocfilter_product_sql;\r\n			}\r\n		}\r\n		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/model/catalog/product.php -->\r\n\r\n	<file path=\"catalog/controller/product/category.php\">\r\n    <operation>\r\n      <search index=\"0\"><![CDATA[$data[\'breadcrumbs\'] = array();]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n		// OCFilter start\r\n    if (isset($this->request->get[\'filter_ocfilter\'])) {\r\n      $filter_ocfilter = $this->request->get[\'filter_ocfilter\'];\r\n    } else {\r\n      $filter_ocfilter = \'\';\r\n    }\r\n		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <!-- Filter params to product model -->\r\n\r\n    <operation>\r\n      <search><![CDATA[$product_total =]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n  		// OCFilter start\r\n  		$filter_data[\'filter_ocfilter\'] = $filter_ocfilter;\r\n  		// OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <!-- Add url -->\r\n\r\n    <operation>\r\n      <search index=\"2\"><![CDATA[if (isset($this->request->get[\'filter\'])) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      // OCFilter start\r\n			if (isset($this->request->get[\'filter_ocfilter\'])) {\r\n				$url .= \'&filter_ocfilter=\' . $this->request->get[\'filter_ocfilter\'];\r\n			}\r\n      // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <operation>\r\n      <search index=\"3\"><![CDATA[if (isset($this->request->get[\'filter\'])) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      // OCFilter start\r\n			if (isset($this->request->get[\'filter_ocfilter\'])) {\r\n				$url .= \'&filter_ocfilter=\' . $this->request->get[\'filter_ocfilter\'];\r\n			}\r\n      // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <operation>\r\n      <search index=\"4\"><![CDATA[if (isset($this->request->get[\'filter\'])) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      // OCFilter start\r\n			if (isset($this->request->get[\'filter_ocfilter\'])) {\r\n				$url .= \'&filter_ocfilter=\' . $this->request->get[\'filter_ocfilter\'];\r\n			}\r\n      // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <!-- Canonical Fix -->\r\n    <!--\r\n    <operation>\r\n      <search><![CDATA[if ($page == 1) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      if (isset($this->request->get[\'page\'])) {\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <operation>\r\n      <search><![CDATA[if ($limit]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n      }\r\n      ]]></add>\r\n    </operation>\r\n    -->\r\n    <!-- SEO Meta -->\r\n\r\n    <operation>\r\n      <search limit=\"1\"><![CDATA[$data[\'limit\'] = $limit;]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n      // OCFilter Start\r\n      $ocfilter_page_info = $this->load->controller(\'extension/module/ocfilter/getPageInfo\');\r\n\r\n      if ($ocfilter_page_info) {\r\n        $this->document->setTitle($ocfilter_page_info[\'meta_title\']);\r\n\r\n        if ($ocfilter_page_info[\'meta_description\']) {\r\n			    $this->document->setDescription($ocfilter_page_info[\'meta_description\']);\r\n        }\r\n\r\n        if ($ocfilter_page_info[\'meta_keyword\']) {\r\n			    $this->document->setKeywords($ocfilter_page_info[\'meta_keyword\']);\r\n        }\r\n\r\n			  $data[\'heading_title\'] = $ocfilter_page_info[\'title\'];\r\n\r\n        if ($ocfilter_page_info[\'description\'] && !isset($this->request->get[\'page\']) && !isset($this->request->get[\'sort\']) && !isset($this->request->get[\'order\']) && !isset($this->request->get[\'search\']) && !isset($this->request->get[\'limit\'])) {\r\n        	$data[\'description\'] = html_entity_decode($ocfilter_page_info[\'description\'], ENT_QUOTES, \'UTF-8\');\r\n        }\r\n      } else {\r\n        $meta_title = $this->document->getTitle();\r\n        $meta_description = $this->document->getDescription();\r\n        $meta_keyword = $this->document->getKeywords();\r\n\r\n        $filter_title = $this->load->controller(\'extension/module/ocfilter/getSelectedsFilterTitle\');\r\n\r\n        if ($filter_title) {\r\n          if (false !== strpos($meta_title, \'{filter}\')) {\r\n            $meta_title = trim(str_replace(\'{filter}\', $filter_title, $meta_title));\r\n          } else {\r\n            $meta_title .= \' \' . $filter_title;\r\n          }\r\n\r\n          $this->document->setTitle($meta_title);\r\n\r\n          if ($meta_description) {\r\n            if (false !== strpos($meta_description, \'{filter}\')) {\r\n              $meta_description = trim(str_replace(\'{filter}\', $filter_title, $meta_description));\r\n            } else {\r\n              $meta_description .= \' \' . $filter_title;\r\n            }\r\n\r\n  			    $this->document->setDescription($meta_description);\r\n          }\r\n\r\n          if ($meta_keyword) {\r\n            if (false !== strpos($meta_keyword, \'{filter}\')) {\r\n              $meta_keyword = trim(str_replace(\'{filter}\', $filter_title, $meta_keyword));\r\n            } else {\r\n              $meta_keyword .= \' \' . $filter_title;\r\n            }\r\n\r\n           	$this->document->setKeywords($meta_keyword);\r\n          }\r\n\r\n          $heading_title = $data[\'heading_title\'];\r\n\r\n          if (false !== strpos($heading_title, \'{filter}\')) {\r\n            $heading_title = trim(str_replace(\'{filter}\', $filter_title, $heading_title));\r\n          } else {\r\n            $heading_title .= \' \' . $filter_title;\r\n          }\r\n\r\n          $data[\'heading_title\'] = $heading_title;\r\n\r\n          $data[\'description\'] = \'\';\r\n        } else {\r\n          $this->document->setTitle(trim(str_replace(\'{filter}\', \'\', $meta_title)));\r\n          $this->document->setDescription(trim(str_replace(\'{filter}\', \'\', $meta_description)));\r\n          $this->document->setKeywords(trim(str_replace(\'{filter}\', \'\', $meta_keyword)));\r\n\r\n          $data[\'heading_title\'] = trim(str_replace(\'{filter}\', \'\', $data[\'heading_title\']));\r\n        }\r\n      }\r\n      // OCFilter End\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/controller/product/category.php -->\r\n\r\n  <!-- Document Noindex -->\r\n\r\n	<file path=\"system/library/document.php\">\r\n    <operation>\r\n      <search><![CDATA[private $keywords;]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n  // OCFilter start\r\n  private $noindex = false;\r\n  // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n\r\n    <operation>\r\n      <search><![CDATA[public function setTitle($title) {]]></search>\r\n      <add position=\"before\"><![CDATA[\r\n  // OCFilter start\r\n  public function setNoindex($state = false) {\r\n  	$this->noindex = $state;\r\n  }\r\n\r\n	public function isNoindex() {\r\n		return $this->noindex;\r\n	}\r\n  // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /system/library/document.php -->\r\n\r\n	<file path=\"catalog/controller/common/header.php\">\r\n    <operation>\r\n      <search><![CDATA[$data[\'scripts\'] = $this->document->getScripts();]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n    // OCFilter start\r\n    $data[\'noindex\'] = $this->document->isNoindex();\r\n    // OCFilter end\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/controller/common/header.php -->\r\n\r\n  <file path=\"catalog/view/theme/*/template/common/header.tpl\">\r\n    <operation>\r\n      <search><![CDATA[</title>]]></search>\r\n      <add position=\"after\"><![CDATA[\r\n<?php if ($noindex) { ?>\r\n<!-- OCFilter Start -->\r\n<meta name=\"robots\" content=\"noindex,nofollow\" />\r\n<!-- OCFilter End -->\r\n<?php } ?>\r\n      ]]></add>\r\n    </operation>\r\n  </file><!-- /catalog/view/theme/*/template/common/header.tpl -->\r\n</modification>', 1, '2018-05-22 11:45:30');
 
 -- --------------------------------------------------------
 
@@ -1755,6 +1764,231 @@ INSERT INTO `oc_module` (`module_id`, `name`, `code`, `setting`) VALUES
 (28, 'Home Page', 'featured', '{\"name\":\"Home Page\",\"product\":[\"43\",\"40\",\"42\",\"30\"],\"limit\":\"4\",\"width\":\"200\",\"height\":\"200\",\"status\":\"1\"}'),
 (27, 'Home Page', 'slideshow', '{\"name\":\"Home Page\",\"banner_id\":\"7\",\"width\":\"1140\",\"height\":\"380\",\"status\":\"1\"}'),
 (31, 'Banner 1', 'banner', '{\"name\":\"Banner 1\",\"banner_id\":\"6\",\"width\":\"182\",\"height\":\"182\",\"status\":\"1\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option` (
+  `option_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(16) NOT NULL DEFAULT 'checkbox',
+  `keyword` varchar(255) NOT NULL DEFAULT '',
+  `selectbox` tinyint(1) NOT NULL DEFAULT '0',
+  `grouping` tinyint(2) NOT NULL DEFAULT '0',
+  `color` tinyint(1) NOT NULL DEFAULT '0',
+  `image` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`option_id`),
+  KEY `keyword` (`keyword`),
+  KEY `status` (`status`),
+  KEY `sort_order` (`sort_order`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `oc_ocfilter_option`
+--
+
+INSERT INTO `oc_ocfilter_option` (`option_id`, `type`, `keyword`, `selectbox`, `grouping`, `color`, `image`, `status`, `sort_order`) VALUES
+(1, 'slide', 'filter', 0, 0, 0, 0, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_description`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_description`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_description` (
+  `option_id` int(11) NOT NULL,
+  `language_id` tinyint(2) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `postfix` varchar(32) NOT NULL DEFAULT '',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`option_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `oc_ocfilter_option_description`
+--
+
+INSERT INTO `oc_ocfilter_option_description` (`option_id`, `language_id`, `name`, `postfix`, `description`) VALUES
+(1, 1, 'filter', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_to_category`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_to_category`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_to_category` (
+  `option_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`category_id`,`option_id`),
+  KEY `category_id` (`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `oc_ocfilter_option_to_category`
+--
+
+INSERT INTO `oc_ocfilter_option_to_category` (`option_id`, `category_id`) VALUES
+(1, 17),
+(1, 18),
+(1, 20),
+(1, 24),
+(1, 25),
+(1, 26),
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 30),
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 34),
+(1, 35),
+(1, 36),
+(1, 37),
+(1, 38),
+(1, 39),
+(1, 40),
+(1, 41),
+(1, 42),
+(1, 43),
+(1, 44),
+(1, 45),
+(1, 46),
+(1, 47),
+(1, 48),
+(1, 49),
+(1, 50),
+(1, 51),
+(1, 52),
+(1, 53),
+(1, 54),
+(1, 55),
+(1, 56),
+(1, 57),
+(1, 58);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_to_store`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_to_store`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_to_store` (
+  `option_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  PRIMARY KEY (`store_id`,`option_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `oc_ocfilter_option_to_store`
+--
+
+INSERT INTO `oc_ocfilter_option_to_store` (`option_id`, `store_id`) VALUES
+(1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_value`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_value`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_value` (
+  `value_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `option_id` int(11) NOT NULL DEFAULT '0',
+  `keyword` varchar(255) NOT NULL DEFAULT '',
+  `color` varchar(6) NOT NULL DEFAULT '',
+  `image` varchar(255) NOT NULL DEFAULT '',
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`value_id`,`option_id`),
+  KEY `keyword` (`keyword`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_value_description`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_value_description`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_value_description` (
+  `value_id` bigint(20) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `language_id` tinyint(2) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`value_id`,`language_id`),
+  KEY `option_id` (`option_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_value_to_product`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_value_to_product`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_value_to_product` (
+  `ocfilter_option_value_to_product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `value_id` bigint(20) NOT NULL,
+  `slide_value_min` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `slide_value_max` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  PRIMARY KEY (`ocfilter_option_value_to_product_id`),
+  KEY `slide_value_min_slide_value_max` (`slide_value_min`,`slide_value_max`),
+  KEY `option_id_value_id` (`option_id`,`value_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_option_value_to_product_description`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_option_value_to_product_description`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_option_value_to_product_description` (
+  `product_id` int(11) NOT NULL,
+  `value_id` bigint(20) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `language_id` tinyint(2) NOT NULL,
+  `description` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`product_id`,`value_id`,`option_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_ocfilter_page`
+--
+
+DROP TABLE IF EXISTS `oc_ocfilter_page`;
+CREATE TABLE IF NOT EXISTS `oc_ocfilter_page` (
+  `ocfilter_page_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `ocfilter_params` varchar(255) NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `keyword` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`ocfilter_page_id`),
+  KEY `category_id_ocfilter_params` (`category_id`,`ocfilter_params`),
+  KEY `keyword` (`keyword`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -2909,7 +3143,7 @@ CREATE TABLE IF NOT EXISTS `oc_setting` (
   `value` text NOT NULL,
   `serialized` tinyint(1) NOT NULL,
   PRIMARY KEY (`setting_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=177 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=219 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `oc_setting`
@@ -3088,7 +3322,28 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (170, 0, 'dashboard_recent', 'dashboard_recent_status', '1', 0),
 (171, 0, 'dashboard_recent', 'dashboard_recent_sort_order', '8', 0),
 (172, 0, 'dashboard_activity', 'dashboard_activity_width', '4', 0),
-(173, 0, 'dashboard_recent', 'dashboard_recent_width', '8', 0);
+(173, 0, 'dashboard_recent', 'dashboard_recent_width', '8', 0),
+(213, 0, 'ocfilter', 'ocfilter_consider_option', '0', 0),
+(212, 0, 'ocfilter', 'ocfilter_consider_special', '0', 0),
+(211, 0, 'ocfilter', 'ocfilter_consider_discount', '0', 0),
+(210, 0, 'ocfilter', 'ocfilter_manual_price', '1', 0),
+(209, 0, 'ocfilter', 'ocfilter_show_diagram', '0', 0),
+(208, 0, 'ocfilter', 'ocfilter_stock_out_value', '0', 0),
+(207, 0, 'ocfilter', 'ocfilter_stock_status_type', 'checkbox', 0),
+(206, 0, 'ocfilter', 'ocfilter_stock_status_method', 'stock_status_id', 0),
+(205, 0, 'ocfilter', 'ocfilter_stock_status', '0', 0),
+(204, 0, 'ocfilter', 'ocfilter_manufacturer_type', 'checkbox', 0),
+(203, 0, 'ocfilter', 'ocfilter_manufacturer', '1', 0),
+(202, 0, 'ocfilter', 'ocfilter_show_counter', '1', 0),
+(201, 0, 'ocfilter', 'ocfilter_show_price', '1', 0),
+(200, 0, 'ocfilter', 'ocfilter_show_selected', '0', 0),
+(199, 0, 'ocfilter', 'ocfilter_sitemap_status', '1', 0),
+(198, 0, 'ocfilter', 'ocfilter_status', '1', 0),
+(214, 0, 'ocfilter', 'ocfilter_show_options_limit', '', 0),
+(215, 0, 'ocfilter', 'ocfilter_show_values_limit', '', 0),
+(216, 0, 'ocfilter', 'ocfilter_hide_empty_values', '0', 0),
+(217, 0, 'ocfilter', 'ocfilter_noindex_limit', '3', 0),
+(218, 0, 'ocfilter', 'ocfilter_attribute_separator', '', 0);
 
 -- --------------------------------------------------------
 
@@ -3425,7 +3680,7 @@ CREATE TABLE IF NOT EXISTS `oc_user` (
 --
 
 INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `salt`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', '9bf575bb145956c9a2dcf8f418bd2cd4f04e4afc', 'kp8iKHiNU', 'John', 'Doe', 'root@localhost.ru', '', '', '', 1, '2018-05-22 11:01:23');
+(1, 1, 'admin', '9bf575bb145956c9a2dcf8f418bd2cd4f04e4afc', 'kp8iKHiNU', 'John', 'Doe', 'root@localhost.ru', '', '', '::1', 1, '2018-05-22 11:01:23');
 
 -- --------------------------------------------------------
 
@@ -3446,7 +3701,7 @@ CREATE TABLE IF NOT EXISTS `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Administrator', '{\"access\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/recurring\",\"catalog\\/review\",\"common\\/column_left\",\"common\\/filemanager\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_group\",\"design\\/banner\",\"design\\/language\",\"design\\/layout\",\"design\\/menu\",\"design\\/theme\",\"design\\/translation\",\"event\\/compatibility\",\"event\\/theme\",\"extension\\/analytics\\/google_analytics\",\"extension\\/captcha\\/basic_captcha\",\"extension\\/captcha\\/google_captcha\",\"extension\\/dashboard\\/activity\",\"extension\\/dashboard\\/chart\",\"extension\\/dashboard\\/customer\",\"extension\\/dashboard\\/map\",\"extension\\/dashboard\\/online\",\"extension\\/dashboard\\/order\",\"extension\\/dashboard\\/recent\",\"extension\\/dashboard\\/sale\",\"extension\\/event\",\"extension\\/extension\",\"extension\\/extension\\/analytics\",\"extension\\/extension\\/captcha\",\"extension\\/extension\\/dashboard\",\"extension\\/extension\\/feed\",\"extension\\/extension\\/fraud\",\"extension\\/extension\\/menu\",\"extension\\/extension\\/module\",\"extension\\/extension\\/payment\",\"extension\\/extension\\/shipping\",\"extension\\/extension\\/theme\",\"extension\\/extension\\/total\",\"extension\\/feed\\/google_base\",\"extension\\/feed\\/google_sitemap\",\"extension\\/feed\\/openbaypro\",\"extension\\/fraud\\/fraudlabspro\",\"extension\\/fraud\\/ip\",\"extension\\/fraud\\/maxmind\",\"extension\\/installer\",\"extension\\/modification\",\"extension\\/module\\/account\",\"extension\\/module\\/affiliate\",\"extension\\/module\\/amazon_login\",\"extension\\/module\\/amazon_pay\",\"extension\\/module\\/banner\",\"extension\\/module\\/bestseller\",\"extension\\/module\\/carousel\",\"extension\\/module\\/category\",\"extension\\/module\\/divido_calculator\",\"extension\\/module\\/ebay_listing\",\"extension\\/module\\/featured\",\"extension\\/module\\/filter\",\"extension\\/module\\/google_hangouts\",\"extension\\/module\\/html\",\"extension\\/module\\/information\",\"extension\\/module\\/klarna_checkout_module\",\"extension\\/module\\/latest\",\"extension\\/module\\/laybuy_layout\",\"extension\\/module\\/pilibaba_button\",\"extension\\/module\\/pp_button\",\"extension\\/module\\/pp_login\",\"extension\\/module\\/sagepay_direct_cards\",\"extension\\/module\\/sagepay_server_cards\",\"extension\\/module\\/slideshow\",\"extension\\/module\\/special\",\"extension\\/module\\/store\",\"extension\\/openbay\",\"extension\\/openbay\\/amazon\",\"extension\\/openbay\\/amazon_listing\",\"extension\\/openbay\\/amazon_product\",\"extension\\/openbay\\/amazonus\",\"extension\\/openbay\\/amazonus_listing\",\"extension\\/openbay\\/amazonus_product\",\"extension\\/openbay\\/ebay\",\"extension\\/openbay\\/ebay_profile\",\"extension\\/openbay\\/ebay_template\",\"extension\\/openbay\\/etsy\",\"extension\\/openbay\\/etsy_product\",\"extension\\/openbay\\/etsy_shipping\",\"extension\\/openbay\\/etsy_shop\",\"extension\\/openbay\\/fba\",\"extension\\/payment\\/amazon_login_pay\",\"extension\\/payment\\/authorizenet_aim\",\"extension\\/payment\\/authorizenet_sim\",\"extension\\/payment\\/bank_transfer\",\"extension\\/payment\\/bluepay_hosted\",\"extension\\/payment\\/bluepay_redirect\",\"extension\\/payment\\/cardconnect\",\"extension\\/payment\\/cardinity\",\"extension\\/payment\\/cheque\",\"extension\\/payment\\/cod\",\"extension\\/payment\\/divido\",\"extension\\/payment\\/eway\",\"extension\\/payment\\/firstdata\",\"extension\\/payment\\/firstdata_remote\",\"extension\\/payment\\/free_checkout\",\"extension\\/payment\\/g2apay\",\"extension\\/payment\\/globalpay\",\"extension\\/payment\\/globalpay_remote\",\"extension\\/payment\\/klarna_account\",\"extension\\/payment\\/klarna_checkout\",\"extension\\/payment\\/klarna_invoice\",\"extension\\/payment\\/laybuy\",\"extension\\/payment\\/liqpay\",\"extension\\/payment\\/nochex\",\"extension\\/payment\\/paymate\",\"extension\\/payment\\/paypoint\",\"extension\\/payment\\/payza\",\"extension\\/payment\\/perpetual_payments\",\"extension\\/payment\\/pilibaba\",\"extension\\/payment\\/pp_express\",\"extension\\/payment\\/pp_payflow\",\"extension\\/payment\\/pp_payflow_iframe\",\"extension\\/payment\\/pp_pro\",\"extension\\/payment\\/pp_pro_iframe\",\"extension\\/payment\\/pp_standard\",\"extension\\/payment\\/realex\",\"extension\\/payment\\/realex_remote\",\"extension\\/payment\\/sagepay_direct\",\"extension\\/payment\\/sagepay_server\",\"extension\\/payment\\/sagepay_us\",\"extension\\/payment\\/securetrading_pp\",\"extension\\/payment\\/securetrading_ws\",\"extension\\/payment\\/skrill\",\"extension\\/payment\\/twocheckout\",\"extension\\/payment\\/web_payment_software\",\"extension\\/payment\\/worldpay\",\"extension\\/shipping\\/auspost\",\"extension\\/shipping\\/citylink\",\"extension\\/shipping\\/fedex\",\"extension\\/shipping\\/flat\",\"extension\\/shipping\\/free\",\"extension\\/shipping\\/item\",\"extension\\/shipping\\/parcelforce_48\",\"extension\\/shipping\\/pickup\",\"extension\\/shipping\\/royal_mail\",\"extension\\/shipping\\/ups\",\"extension\\/shipping\\/usps\",\"extension\\/shipping\\/weight\",\"extension\\/store\",\"extension\\/theme\\/theme_default\",\"extension\\/total\\/coupon\",\"extension\\/total\\/credit\",\"extension\\/total\\/handling\",\"extension\\/total\\/klarna_fee\",\"extension\\/total\\/low_order_fee\",\"extension\\/total\\/reward\",\"extension\\/total\\/shipping\",\"extension\\/total\\/sub_total\",\"extension\\/total\\/tax\",\"extension\\/total\\/total\",\"extension\\/total\\/voucher\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"report\\/affiliate\",\"report\\/affiliate_activity\",\"report\\/affiliate_login\",\"report\\/customer_activity\",\"report\\/customer_credit\",\"report\\/customer_login\",\"report\\/customer_online\",\"report\\/customer_order\",\"report\\/customer_reward\",\"report\\/customer_search\",\"report\\/marketing\",\"report\\/product_purchased\",\"report\\/product_viewed\",\"report\\/sale_coupon\",\"report\\/sale_order\",\"report\\/sale_return\",\"report\\/sale_shipping\",\"report\\/sale_tax\",\"sale\\/order\",\"sale\\/recurring\",\"sale\\/return\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/compatibility\",\"startup\\/error\",\"startup\\/event\",\"startup\\/login\",\"startup\\/permission\",\"startup\\/router\",\"startup\\/sass\",\"startup\\/startup\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/upload\",\"user\\/api\",\"user\\/user\",\"user\\/user_permission\"],\"modify\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/recurring\",\"catalog\\/review\",\"common\\/column_left\",\"common\\/filemanager\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_group\",\"design\\/banner\",\"design\\/language\",\"design\\/layout\",\"design\\/menu\",\"design\\/theme\",\"design\\/translation\",\"event\\/compatibility\",\"event\\/theme\",\"extension\\/analytics\\/google_analytics\",\"extension\\/captcha\\/basic_captcha\",\"extension\\/captcha\\/google_captcha\",\"extension\\/dashboard\\/activity\",\"extension\\/dashboard\\/chart\",\"extension\\/dashboard\\/customer\",\"extension\\/dashboard\\/map\",\"extension\\/dashboard\\/online\",\"extension\\/dashboard\\/order\",\"extension\\/dashboard\\/recent\",\"extension\\/dashboard\\/sale\",\"extension\\/event\",\"extension\\/extension\",\"extension\\/extension\\/analytics\",\"extension\\/extension\\/captcha\",\"extension\\/extension\\/dashboard\",\"extension\\/extension\\/feed\",\"extension\\/extension\\/fraud\",\"extension\\/extension\\/menu\",\"extension\\/extension\\/module\",\"extension\\/extension\\/payment\",\"extension\\/extension\\/shipping\",\"extension\\/extension\\/theme\",\"extension\\/extension\\/total\",\"extension\\/feed\\/google_base\",\"extension\\/feed\\/google_sitemap\",\"extension\\/feed\\/openbaypro\",\"extension\\/fraud\\/fraudlabspro\",\"extension\\/fraud\\/ip\",\"extension\\/fraud\\/maxmind\",\"extension\\/installer\",\"extension\\/modification\",\"extension\\/module\\/account\",\"extension\\/module\\/affiliate\",\"extension\\/module\\/amazon_login\",\"extension\\/module\\/amazon_pay\",\"extension\\/module\\/banner\",\"extension\\/module\\/bestseller\",\"extension\\/module\\/carousel\",\"extension\\/module\\/category\",\"extension\\/module\\/divido_calculator\",\"extension\\/module\\/ebay_listing\",\"extension\\/module\\/featured\",\"extension\\/module\\/filter\",\"extension\\/module\\/google_hangouts\",\"extension\\/module\\/html\",\"extension\\/module\\/information\",\"extension\\/module\\/klarna_checkout_module\",\"extension\\/module\\/latest\",\"extension\\/module\\/laybuy_layout\",\"extension\\/module\\/pilibaba_button\",\"extension\\/module\\/pp_button\",\"extension\\/module\\/pp_login\",\"extension\\/module\\/sagepay_direct_cards\",\"extension\\/module\\/sagepay_server_cards\",\"extension\\/module\\/slideshow\",\"extension\\/module\\/special\",\"extension\\/module\\/store\",\"extension\\/openbay\",\"extension\\/openbay\\/amazon\",\"extension\\/openbay\\/amazon_listing\",\"extension\\/openbay\\/amazon_product\",\"extension\\/openbay\\/amazonus\",\"extension\\/openbay\\/amazonus_listing\",\"extension\\/openbay\\/amazonus_product\",\"extension\\/openbay\\/ebay\",\"extension\\/openbay\\/ebay_profile\",\"extension\\/openbay\\/ebay_template\",\"extension\\/openbay\\/etsy\",\"extension\\/openbay\\/etsy_product\",\"extension\\/openbay\\/etsy_shipping\",\"extension\\/openbay\\/etsy_shop\",\"extension\\/openbay\\/fba\",\"extension\\/payment\\/amazon_login_pay\",\"extension\\/payment\\/authorizenet_aim\",\"extension\\/payment\\/authorizenet_sim\",\"extension\\/payment\\/bank_transfer\",\"extension\\/payment\\/bluepay_hosted\",\"extension\\/payment\\/bluepay_redirect\",\"extension\\/payment\\/cardconnect\",\"extension\\/payment\\/cardinity\",\"extension\\/payment\\/cheque\",\"extension\\/payment\\/cod\",\"extension\\/payment\\/divido\",\"extension\\/payment\\/eway\",\"extension\\/payment\\/firstdata\",\"extension\\/payment\\/firstdata_remote\",\"extension\\/payment\\/free_checkout\",\"extension\\/payment\\/g2apay\",\"extension\\/payment\\/globalpay\",\"extension\\/payment\\/globalpay_remote\",\"extension\\/payment\\/klarna_account\",\"extension\\/payment\\/klarna_checkout\",\"extension\\/payment\\/klarna_invoice\",\"extension\\/payment\\/laybuy\",\"extension\\/payment\\/liqpay\",\"extension\\/payment\\/nochex\",\"extension\\/payment\\/paymate\",\"extension\\/payment\\/paypoint\",\"extension\\/payment\\/payza\",\"extension\\/payment\\/perpetual_payments\",\"extension\\/payment\\/pilibaba\",\"extension\\/payment\\/pp_express\",\"extension\\/payment\\/pp_payflow\",\"extension\\/payment\\/pp_payflow_iframe\",\"extension\\/payment\\/pp_pro\",\"extension\\/payment\\/pp_pro_iframe\",\"extension\\/payment\\/pp_standard\",\"extension\\/payment\\/realex\",\"extension\\/payment\\/realex_remote\",\"extension\\/payment\\/sagepay_direct\",\"extension\\/payment\\/sagepay_server\",\"extension\\/payment\\/sagepay_us\",\"extension\\/payment\\/securetrading_pp\",\"extension\\/payment\\/securetrading_ws\",\"extension\\/payment\\/skrill\",\"extension\\/payment\\/twocheckout\",\"extension\\/payment\\/web_payment_software\",\"extension\\/payment\\/worldpay\",\"extension\\/shipping\\/auspost\",\"extension\\/shipping\\/citylink\",\"extension\\/shipping\\/fedex\",\"extension\\/shipping\\/flat\",\"extension\\/shipping\\/free\",\"extension\\/shipping\\/item\",\"extension\\/shipping\\/parcelforce_48\",\"extension\\/shipping\\/pickup\",\"extension\\/shipping\\/royal_mail\",\"extension\\/shipping\\/ups\",\"extension\\/shipping\\/usps\",\"extension\\/shipping\\/weight\",\"extension\\/store\",\"extension\\/theme\\/theme_default\",\"extension\\/total\\/coupon\",\"extension\\/total\\/credit\",\"extension\\/total\\/handling\",\"extension\\/total\\/klarna_fee\",\"extension\\/total\\/low_order_fee\",\"extension\\/total\\/reward\",\"extension\\/total\\/shipping\",\"extension\\/total\\/sub_total\",\"extension\\/total\\/tax\",\"extension\\/total\\/total\",\"extension\\/total\\/voucher\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"report\\/affiliate\",\"report\\/affiliate_activity\",\"report\\/affiliate_login\",\"report\\/customer_activity\",\"report\\/customer_credit\",\"report\\/customer_login\",\"report\\/customer_online\",\"report\\/customer_order\",\"report\\/customer_reward\",\"report\\/customer_search\",\"report\\/marketing\",\"report\\/product_purchased\",\"report\\/product_viewed\",\"report\\/sale_coupon\",\"report\\/sale_order\",\"report\\/sale_return\",\"report\\/sale_shipping\",\"report\\/sale_tax\",\"sale\\/order\",\"sale\\/recurring\",\"sale\\/return\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/compatibility\",\"startup\\/error\",\"startup\\/event\",\"startup\\/login\",\"startup\\/permission\",\"startup\\/router\",\"startup\\/sass\",\"startup\\/startup\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/upload\",\"user\\/api\",\"user\\/user\",\"user\\/user_permission\"]}'),
+(1, 'Administrator', '{\"access\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/recurring\",\"catalog\\/review\",\"common\\/column_left\",\"common\\/filemanager\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_group\",\"design\\/banner\",\"design\\/language\",\"design\\/layout\",\"design\\/menu\",\"design\\/theme\",\"design\\/translation\",\"event\\/compatibility\",\"event\\/theme\",\"extension\\/analytics\\/google_analytics\",\"extension\\/captcha\\/basic_captcha\",\"extension\\/captcha\\/google_captcha\",\"extension\\/dashboard\\/activity\",\"extension\\/dashboard\\/chart\",\"extension\\/dashboard\\/customer\",\"extension\\/dashboard\\/map\",\"extension\\/dashboard\\/online\",\"extension\\/dashboard\\/order\",\"extension\\/dashboard\\/recent\",\"extension\\/dashboard\\/sale\",\"extension\\/event\",\"extension\\/extension\",\"extension\\/extension\\/analytics\",\"extension\\/extension\\/captcha\",\"extension\\/extension\\/dashboard\",\"extension\\/extension\\/feed\",\"extension\\/extension\\/fraud\",\"extension\\/extension\\/menu\",\"extension\\/extension\\/module\",\"extension\\/extension\\/payment\",\"extension\\/extension\\/shipping\",\"extension\\/extension\\/theme\",\"extension\\/extension\\/total\",\"extension\\/feed\\/google_base\",\"extension\\/feed\\/google_sitemap\",\"extension\\/feed\\/openbaypro\",\"extension\\/fraud\\/fraudlabspro\",\"extension\\/fraud\\/ip\",\"extension\\/fraud\\/maxmind\",\"extension\\/installer\",\"extension\\/modification\",\"extension\\/module\\/account\",\"extension\\/module\\/affiliate\",\"extension\\/module\\/amazon_login\",\"extension\\/module\\/amazon_pay\",\"extension\\/module\\/banner\",\"extension\\/module\\/bestseller\",\"extension\\/module\\/carousel\",\"extension\\/module\\/category\",\"extension\\/module\\/divido_calculator\",\"extension\\/module\\/ebay_listing\",\"extension\\/module\\/featured\",\"extension\\/module\\/filter\",\"extension\\/module\\/google_hangouts\",\"extension\\/module\\/html\",\"extension\\/module\\/information\",\"extension\\/module\\/klarna_checkout_module\",\"extension\\/module\\/latest\",\"extension\\/module\\/laybuy_layout\",\"extension\\/module\\/pilibaba_button\",\"extension\\/module\\/pp_button\",\"extension\\/module\\/pp_login\",\"extension\\/module\\/sagepay_direct_cards\",\"extension\\/module\\/sagepay_server_cards\",\"extension\\/module\\/slideshow\",\"extension\\/module\\/special\",\"extension\\/module\\/store\",\"extension\\/openbay\",\"extension\\/openbay\\/amazon\",\"extension\\/openbay\\/amazon_listing\",\"extension\\/openbay\\/amazon_product\",\"extension\\/openbay\\/amazonus\",\"extension\\/openbay\\/amazonus_listing\",\"extension\\/openbay\\/amazonus_product\",\"extension\\/openbay\\/ebay\",\"extension\\/openbay\\/ebay_profile\",\"extension\\/openbay\\/ebay_template\",\"extension\\/openbay\\/etsy\",\"extension\\/openbay\\/etsy_product\",\"extension\\/openbay\\/etsy_shipping\",\"extension\\/openbay\\/etsy_shop\",\"extension\\/openbay\\/fba\",\"extension\\/payment\\/amazon_login_pay\",\"extension\\/payment\\/authorizenet_aim\",\"extension\\/payment\\/authorizenet_sim\",\"extension\\/payment\\/bank_transfer\",\"extension\\/payment\\/bluepay_hosted\",\"extension\\/payment\\/bluepay_redirect\",\"extension\\/payment\\/cardconnect\",\"extension\\/payment\\/cardinity\",\"extension\\/payment\\/cheque\",\"extension\\/payment\\/cod\",\"extension\\/payment\\/divido\",\"extension\\/payment\\/eway\",\"extension\\/payment\\/firstdata\",\"extension\\/payment\\/firstdata_remote\",\"extension\\/payment\\/free_checkout\",\"extension\\/payment\\/g2apay\",\"extension\\/payment\\/globalpay\",\"extension\\/payment\\/globalpay_remote\",\"extension\\/payment\\/klarna_account\",\"extension\\/payment\\/klarna_checkout\",\"extension\\/payment\\/klarna_invoice\",\"extension\\/payment\\/laybuy\",\"extension\\/payment\\/liqpay\",\"extension\\/payment\\/nochex\",\"extension\\/payment\\/paymate\",\"extension\\/payment\\/paypoint\",\"extension\\/payment\\/payza\",\"extension\\/payment\\/perpetual_payments\",\"extension\\/payment\\/pilibaba\",\"extension\\/payment\\/pp_express\",\"extension\\/payment\\/pp_payflow\",\"extension\\/payment\\/pp_payflow_iframe\",\"extension\\/payment\\/pp_pro\",\"extension\\/payment\\/pp_pro_iframe\",\"extension\\/payment\\/pp_standard\",\"extension\\/payment\\/realex\",\"extension\\/payment\\/realex_remote\",\"extension\\/payment\\/sagepay_direct\",\"extension\\/payment\\/sagepay_server\",\"extension\\/payment\\/sagepay_us\",\"extension\\/payment\\/securetrading_pp\",\"extension\\/payment\\/securetrading_ws\",\"extension\\/payment\\/skrill\",\"extension\\/payment\\/twocheckout\",\"extension\\/payment\\/web_payment_software\",\"extension\\/payment\\/worldpay\",\"extension\\/shipping\\/auspost\",\"extension\\/shipping\\/citylink\",\"extension\\/shipping\\/fedex\",\"extension\\/shipping\\/flat\",\"extension\\/shipping\\/free\",\"extension\\/shipping\\/item\",\"extension\\/shipping\\/parcelforce_48\",\"extension\\/shipping\\/pickup\",\"extension\\/shipping\\/royal_mail\",\"extension\\/shipping\\/ups\",\"extension\\/shipping\\/usps\",\"extension\\/shipping\\/weight\",\"extension\\/store\",\"extension\\/theme\\/theme_default\",\"extension\\/total\\/coupon\",\"extension\\/total\\/credit\",\"extension\\/total\\/handling\",\"extension\\/total\\/klarna_fee\",\"extension\\/total\\/low_order_fee\",\"extension\\/total\\/reward\",\"extension\\/total\\/shipping\",\"extension\\/total\\/sub_total\",\"extension\\/total\\/tax\",\"extension\\/total\\/total\",\"extension\\/total\\/voucher\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"report\\/affiliate\",\"report\\/affiliate_activity\",\"report\\/affiliate_login\",\"report\\/customer_activity\",\"report\\/customer_credit\",\"report\\/customer_login\",\"report\\/customer_online\",\"report\\/customer_order\",\"report\\/customer_reward\",\"report\\/customer_search\",\"report\\/marketing\",\"report\\/product_purchased\",\"report\\/product_viewed\",\"report\\/sale_coupon\",\"report\\/sale_order\",\"report\\/sale_return\",\"report\\/sale_shipping\",\"report\\/sale_tax\",\"sale\\/order\",\"sale\\/recurring\",\"sale\\/return\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/compatibility\",\"startup\\/error\",\"startup\\/event\",\"startup\\/login\",\"startup\\/permission\",\"startup\\/router\",\"startup\\/sass\",\"startup\\/startup\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/upload\",\"user\\/api\",\"user\\/user\",\"user\\/user_permission\",\"catalog\\/ocfilter\",\"extension\\/module\\/ocfilter\"],\"modify\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/recurring\",\"catalog\\/review\",\"common\\/column_left\",\"common\\/filemanager\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_group\",\"design\\/banner\",\"design\\/language\",\"design\\/layout\",\"design\\/menu\",\"design\\/theme\",\"design\\/translation\",\"event\\/compatibility\",\"event\\/theme\",\"extension\\/analytics\\/google_analytics\",\"extension\\/captcha\\/basic_captcha\",\"extension\\/captcha\\/google_captcha\",\"extension\\/dashboard\\/activity\",\"extension\\/dashboard\\/chart\",\"extension\\/dashboard\\/customer\",\"extension\\/dashboard\\/map\",\"extension\\/dashboard\\/online\",\"extension\\/dashboard\\/order\",\"extension\\/dashboard\\/recent\",\"extension\\/dashboard\\/sale\",\"extension\\/event\",\"extension\\/extension\",\"extension\\/extension\\/analytics\",\"extension\\/extension\\/captcha\",\"extension\\/extension\\/dashboard\",\"extension\\/extension\\/feed\",\"extension\\/extension\\/fraud\",\"extension\\/extension\\/menu\",\"extension\\/extension\\/module\",\"extension\\/extension\\/payment\",\"extension\\/extension\\/shipping\",\"extension\\/extension\\/theme\",\"extension\\/extension\\/total\",\"extension\\/feed\\/google_base\",\"extension\\/feed\\/google_sitemap\",\"extension\\/feed\\/openbaypro\",\"extension\\/fraud\\/fraudlabspro\",\"extension\\/fraud\\/ip\",\"extension\\/fraud\\/maxmind\",\"extension\\/installer\",\"extension\\/modification\",\"extension\\/module\\/account\",\"extension\\/module\\/affiliate\",\"extension\\/module\\/amazon_login\",\"extension\\/module\\/amazon_pay\",\"extension\\/module\\/banner\",\"extension\\/module\\/bestseller\",\"extension\\/module\\/carousel\",\"extension\\/module\\/category\",\"extension\\/module\\/divido_calculator\",\"extension\\/module\\/ebay_listing\",\"extension\\/module\\/featured\",\"extension\\/module\\/filter\",\"extension\\/module\\/google_hangouts\",\"extension\\/module\\/html\",\"extension\\/module\\/information\",\"extension\\/module\\/klarna_checkout_module\",\"extension\\/module\\/latest\",\"extension\\/module\\/laybuy_layout\",\"extension\\/module\\/pilibaba_button\",\"extension\\/module\\/pp_button\",\"extension\\/module\\/pp_login\",\"extension\\/module\\/sagepay_direct_cards\",\"extension\\/module\\/sagepay_server_cards\",\"extension\\/module\\/slideshow\",\"extension\\/module\\/special\",\"extension\\/module\\/store\",\"extension\\/openbay\",\"extension\\/openbay\\/amazon\",\"extension\\/openbay\\/amazon_listing\",\"extension\\/openbay\\/amazon_product\",\"extension\\/openbay\\/amazonus\",\"extension\\/openbay\\/amazonus_listing\",\"extension\\/openbay\\/amazonus_product\",\"extension\\/openbay\\/ebay\",\"extension\\/openbay\\/ebay_profile\",\"extension\\/openbay\\/ebay_template\",\"extension\\/openbay\\/etsy\",\"extension\\/openbay\\/etsy_product\",\"extension\\/openbay\\/etsy_shipping\",\"extension\\/openbay\\/etsy_shop\",\"extension\\/openbay\\/fba\",\"extension\\/payment\\/amazon_login_pay\",\"extension\\/payment\\/authorizenet_aim\",\"extension\\/payment\\/authorizenet_sim\",\"extension\\/payment\\/bank_transfer\",\"extension\\/payment\\/bluepay_hosted\",\"extension\\/payment\\/bluepay_redirect\",\"extension\\/payment\\/cardconnect\",\"extension\\/payment\\/cardinity\",\"extension\\/payment\\/cheque\",\"extension\\/payment\\/cod\",\"extension\\/payment\\/divido\",\"extension\\/payment\\/eway\",\"extension\\/payment\\/firstdata\",\"extension\\/payment\\/firstdata_remote\",\"extension\\/payment\\/free_checkout\",\"extension\\/payment\\/g2apay\",\"extension\\/payment\\/globalpay\",\"extension\\/payment\\/globalpay_remote\",\"extension\\/payment\\/klarna_account\",\"extension\\/payment\\/klarna_checkout\",\"extension\\/payment\\/klarna_invoice\",\"extension\\/payment\\/laybuy\",\"extension\\/payment\\/liqpay\",\"extension\\/payment\\/nochex\",\"extension\\/payment\\/paymate\",\"extension\\/payment\\/paypoint\",\"extension\\/payment\\/payza\",\"extension\\/payment\\/perpetual_payments\",\"extension\\/payment\\/pilibaba\",\"extension\\/payment\\/pp_express\",\"extension\\/payment\\/pp_payflow\",\"extension\\/payment\\/pp_payflow_iframe\",\"extension\\/payment\\/pp_pro\",\"extension\\/payment\\/pp_pro_iframe\",\"extension\\/payment\\/pp_standard\",\"extension\\/payment\\/realex\",\"extension\\/payment\\/realex_remote\",\"extension\\/payment\\/sagepay_direct\",\"extension\\/payment\\/sagepay_server\",\"extension\\/payment\\/sagepay_us\",\"extension\\/payment\\/securetrading_pp\",\"extension\\/payment\\/securetrading_ws\",\"extension\\/payment\\/skrill\",\"extension\\/payment\\/twocheckout\",\"extension\\/payment\\/web_payment_software\",\"extension\\/payment\\/worldpay\",\"extension\\/shipping\\/auspost\",\"extension\\/shipping\\/citylink\",\"extension\\/shipping\\/fedex\",\"extension\\/shipping\\/flat\",\"extension\\/shipping\\/free\",\"extension\\/shipping\\/item\",\"extension\\/shipping\\/parcelforce_48\",\"extension\\/shipping\\/pickup\",\"extension\\/shipping\\/royal_mail\",\"extension\\/shipping\\/ups\",\"extension\\/shipping\\/usps\",\"extension\\/shipping\\/weight\",\"extension\\/store\",\"extension\\/theme\\/theme_default\",\"extension\\/total\\/coupon\",\"extension\\/total\\/credit\",\"extension\\/total\\/handling\",\"extension\\/total\\/klarna_fee\",\"extension\\/total\\/low_order_fee\",\"extension\\/total\\/reward\",\"extension\\/total\\/shipping\",\"extension\\/total\\/sub_total\",\"extension\\/total\\/tax\",\"extension\\/total\\/total\",\"extension\\/total\\/voucher\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"report\\/affiliate\",\"report\\/affiliate_activity\",\"report\\/affiliate_login\",\"report\\/customer_activity\",\"report\\/customer_credit\",\"report\\/customer_login\",\"report\\/customer_online\",\"report\\/customer_order\",\"report\\/customer_reward\",\"report\\/customer_search\",\"report\\/marketing\",\"report\\/product_purchased\",\"report\\/product_viewed\",\"report\\/sale_coupon\",\"report\\/sale_order\",\"report\\/sale_return\",\"report\\/sale_shipping\",\"report\\/sale_tax\",\"sale\\/order\",\"sale\\/recurring\",\"sale\\/return\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/compatibility\",\"startup\\/error\",\"startup\\/event\",\"startup\\/login\",\"startup\\/permission\",\"startup\\/router\",\"startup\\/sass\",\"startup\\/startup\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/upload\",\"user\\/api\",\"user\\/user\",\"user\\/user_permission\",\"catalog\\/ocfilter\",\"extension\\/module\\/ocfilter\"]}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------

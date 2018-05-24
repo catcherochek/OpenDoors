@@ -1,0 +1,35 @@
+$from = "admin/controller/catalog/ocfilter.php"
+$to = "scripts/filter/installed/admin/controller/catalog/"
+Copy-Item admin/controller/catalog/ -Filter ocfilter.php -Destination scripts/filter/installed/admin/controller/catalog/ -Recurse
+ Copy-Item admin/controller/extension/module/ -Filter ocfilter.php -destination scripts\filter\installed\admin/controller/extension/module/ -Force -Recurse
+ Copy-Item admin/language/en-gb/catalog/ -Filter ocfilter.php -destination scripts\filter\installed\admin/language/en-gb/catalog/ -Force -Recurse
+ Copy-Item admin/language/en-gb/extension/module/ -Filter ocfilter.php -destination scripts\filter\installed\admin/language/en-gb/extension/module/ -Force -Recurse
+ Copy-Item admin/language/en-us/   -destination scripts\filter\installed\admin/language/en-us/ -Force -Recurse
+ Copy-Item admin/language/ru-ru/catalog/  -Filter ocfilter.php -destination scripts\filter\installed\admin/language/ru-ru/catalog/ -Force -Recurse
+ Copy-Item admin/language/ru-ru/extension/module/  -Filter ocfilter.php -destination scripts\filter\installed\admin/language/ru-ru/extension/module/ -Force -Recurse
+ Copy-Item admin/language/ru/ -destination scripts\filter\installed\admin/language/ru/ -Force -Recurse
+ Copy-Item admin/language/ua/ -destination scripts\filter\installed\admin/language/ua/ -Force -Recurse
+ Copy-Item admin/model/catalog/  -Filter ocfilter.php -destination scripts\filter\installed\admin/model/catalog/ -Force -Recurse
+ Copy-Item admin/view/javascript/ocfilter/ -destination scripts\filter\installed\admin/view/javascript/ocfilter/ -Force -Recurse
+ Copy-Item admin/view/stylesheet/ocfilter/ -destination scripts\filter\installed\admin/view/stylesheet/ocfilter/ -Force -Recurse
+ Copy-Item admin/view/template/catalog/  -Filter ocfilter_form.tpl -destination scripts\filter\installed\admin/view/template/catalog/ -Force -Recurse
+ Copy-Item admin/view/template/catalog/  -Filter ocfilter_list.tpl -destination scripts\filter\installed\admin/view/template/catalog/ -Force -Recurse
+ Copy-Item admin/view/template/catalog/  -Filter ocfilter_page_form.tpl -destination scripts\filter\installed\admin/view/template/catalog/ -Force -Recurse
+ Copy-Item admin/view/template/catalog/  -Filter ocfilter_page_list.tpl -destination scripts\filter\installed\admin/view/template/catalog/ -Force -Recurse
+ Copy-Item admin/view/template/extension/module/  -Filter ocfilter.tpl -destination scripts\filter\installed\admin/view/template/extension/module/ -Force -Recurse
+ Copy-Item catalog/controller/extension/module/  -Filter ocfilter.php -destination scripts\filter\installed\catalog/controller/extension/module/ -Force -Recurse
+ Copy-Item catalog/controller/feed/ -destination scripts\filter\installed\catalog/controller/feed/ -Force -Recurse
+ Copy-Item catalog/language/en-gb/extension/module/  -Filter ocfilter.php -destination scripts\filter\installed\catalog/language/en-gb/extension/module/ -Force -Recurse
+ Copy-Item catalog/language/en-us/ -destination scripts\filter\installed\catalog/language/en-us/ -Force -Recurse
+ Copy-Item catalog/language/english/ -destination scripts\filter\installed\catalog/language/english/ -Force -Recurse
+ Copy-Item catalog/language/ru-ru/extension/module/  -Filter ocfilter.php -destination scripts\filter\installed\catalog/language/ru-ru/extension/module/ -Force -Recurse
+ Copy-Item catalog/language/ru/ -destination scripts\filter\installed\catalog/language/ru/ -Force -Recurse
+ Copy-Item catalog/language/russian/ -destination scripts\filter\installed\catalog/language/russian/ -Force -Recurse
+ Copy-Item catalog/language/ua/ -destination scripts\filter\installed\catalog/language/ua/ -Force -Recurse
+ Copy-Item catalog/language/ukrainian/ -destination scripts\filter\installed\catalog/language/ukrainian/ -Force -Recurse
+ Copy-Item catalog/model/catalog/  -Filter ocfilter.php -destination scripts\filter\installed\catalog/model/catalog/ -Force -Recurse
+ Copy-Item catalog/view/javascript/ocfilter/ -destination scripts\filter\installed\catalog/view/javascript/ocfilter/ -Force -Recurse
+ Copy-Item catalog/view/theme/default/stylesheet/ocfilter/ -destination scripts\filter\installed\catalog/view/theme/default/stylesheet/ocfilter/ -Force -Recurse
+ Copy-Item catalog/view/theme/default/template/extension/module/  -Filter ocfilter.tpl -destination scripts\filter\installed\catalog/view/theme/default/template/extension/module/ -Force -Recurse
+ Copy-Item system/config/  -Filter ocfilter.php -destination scripts\filter\installed\system/config/ -Force -Recurse
+ Copy-Item system/helper/  -Filter ocfilter.php -destination scripts\filter\installed\system/helper/ -Force -Recurse
