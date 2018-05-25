@@ -21,9 +21,24 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>OC_FILTER</name>
+			<name>Export</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Export/admin</name>
+			<type>2</type>
+			<location>C:/wamp/www/oc2/scripts/excelport/installed/admin</location>
+		</link>
+		<link>
+			<name>Export/system</name>
+			<type>2</type>
+			<location>C:/wamp/www/oc2/scripts/excelport/installed/system</location>
+		</link>
+		<link>
+			<name>Export/vendors</name>
+			<type>2</type>
+			<location>C:/wamp/www/oc2/scripts/excelport/installed/vendors</location>
 		</link>
 	</linkedResources>
 </projectDescription>
