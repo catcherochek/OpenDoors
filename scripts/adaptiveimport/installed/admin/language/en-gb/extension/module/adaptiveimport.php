@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']						= 'ExcelPort 2.2.1';
+$_['heading_title']						= 'Adaptiveimopt';
 
 // Text
 $_['text_module']         				= 'Modules';
