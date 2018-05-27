@@ -1,5 +1,5 @@
 <?php 
-class ModelModuleExcelport extends Model {
+class ModelExtensionModuleExcelport extends Model {
 	public $now;
 	public $productSize = 26;
 	public $productAttributeSeparator = '  >  ';

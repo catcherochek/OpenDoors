@@ -1,5 +1,5 @@
 <?php
-class ControllerModuleExcelport extends Controller {
+class ControllerExtensionModuleExcelport extends Controller {
 	private $error = array();
 
 	// public function __construct($registry) {
@@ -13,9 +13,9 @@ class ControllerModuleExcelport extends Controller {
 	// }
 	
 	protected function validate() {
-		$this->language->load('module/excelport');
+		$this->language->load('extension/module/excelport');
 
-		if (!$this->user->hasPermission('modify', 'module/excelport')) {
+		if (!$this->user->hasPermission('modify', 'extension/module/excelport')) {
 			$this->error[] = $this->language->get('error_permission');
 			return false;
 		}
@@ -26,22 +26,22 @@ class ControllerModuleExcelport extends Controller {
 	public function index() {
 		$data = array();
 
-		$this->language->load('module/excelport');
+		$this->language->load('extension/module/excelport');
 
-		$this->load->model('module/excelport');
+		$this->load->model('extension/module/excelport');
         $this->load->model('setting/store');
 		$this->load->model('setting/setting');
 		$this->load->model('localisation/language');
 		
-		$this->model_module_excelport->openstock_integrate();
+		$this->model_extension_module_excelport->openstock_integrate();
 		
-        if ($this->model_module_excelport->openstock_installed()) {
+        if ($this->model_extension_module_excelport->openstock_installed()) {
             $data['openstock_installed'] = $this->language->get('text_openstock_installed');
         }
 
 		$this->response->addHeader('Cache-Control: no-cache, no-store');
 		
-		$this->model_module_excelport->ini_settings();
+		$this->model_extension_module_excelport->ini_settings();
 
         if (stripos($this->request->server['REQUEST_URI'], 'com_mijoshop') !== FALSE) {
             $this->document->addStyle('../opencart/admin/view/stylesheet/excelport.css');
@@ -75,41 +75,41 @@ class ControllerModuleExcelport extends Controller {
 						unset($this->session->data['generated_files']);
 						unset($this->session->data['generated_file']);
 						$this->session->data['generated_files'] = array();
-						$this->model_module_excelport->deleteProgress();
+						$this->model_extension_module_excelport->deleteProgress();
 						$this->session->data['ajaxgenerate'] = true;
-						$this->model_module_excelport->cleanTemp(IMODULE_ROOT . IMODULE_TEMP_FOLDER);
+						$this->model_extension_module_excelport->cleanTemp(IMODULE_ROOT . IMODULE_TEMP_FOLDER);
 					} break;
 					case 'import' : {
-						$this->model_module_excelport->deleteProgress();
+						$this->model_extension_module_excelport->deleteProgress();
 						$this->session->data['ajaximport'] = true;
 						
-						$uploadedFile = $this->model_module_excelport->getStandardFile($this->request->files['ExcelPort'], 'Import', 'File');
+						$uploadedFile = $this->model_extension_module_excelport->getStandardFile($this->request->files['ExcelPort'], 'Import', 'File');
 						
-						$this->session->data['uploaded_files'] = $this->model_module_excelport->prepareUploadedFile($uploadedFile);
+						$this->session->data['uploaded_files'] = $this->model_extension_module_excelport->prepareUploadedFile($uploadedFile);
 						
 						if (!empty($this->session->data['uploaded_files']) && !empty($this->request->post['ExcelPort']['Import']['Delete'])) {
 							if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Products') {
-								$this->load->model('module/excelport_product');
-								$this->model_module_excelport_product->deleteProducts();
+								$this->load->model('extension/module/excelport_product');
+								$this->model_extension_module_excelport_product->deleteProducts();
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Categories') {
-								$this->load->model('module/excelport_category');
-								$this->model_module_excelport_category->deleteCategories();	
+								$this->load->model('extension/module/excelport_category');
+								$this->model_extension_module_excelport_category->deleteCategories();	
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Options') {
-								$this->load->model('module/excelport_option');
-								$this->model_module_excelport_option->deleteOptions();	
+								$this->load->model('extension/module/excelport_option');
+								$this->model_extension_module_excelport_option->deleteOptions();	
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Attributes') {
-								$this->load->model('module/excelport_attribute');
-								$this->model_module_excelport_attribute->deleteAttributes();
-								$this->model_module_excelport_attribute->deleteAttributeGroups();	
+								$this->load->model('extension/module/excelport_attribute');
+								$this->model_extension_module_excelport_attribute->deleteAttributes();
+								$this->model_extension_module_excelport_attribute->deleteAttributeGroups();	
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Customers') {
-								$this->load->model('module/excelport_customer');
-								$this->model_module_excelport_customer->deleteCustomers();
+								$this->load->model('extension/module/excelport_customer');
+								$this->model_extension_module_excelport_customer->deleteCustomers();
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'CustomerGroups') {
-								$this->load->model('module/excelport_customer_group');
-								$this->model_module_excelport_customer_group->deleteCustomerGroups();
+								$this->load->model('extension/module/excelport_customer_group');
+								$this->model_extension_module_excelport_customer_group->deleteCustomerGroups();
 							} else if ($this->request->post['ExcelPort']['Import']['DataType'] == 'Orders') {
-								$this->load->model('module/excelport_order');
-								$this->model_module_excelport_order->deleteOrders();
+								$this->load->model('extension/module/excelport_order');
+								$this->model_extension_module_excelport_order->deleteOrders();
 							}
 						}
 					} break;
@@ -120,7 +120,7 @@ class ControllerModuleExcelport extends Controller {
 			
 			$selectedTab = (empty($this->request->post['selectedTab'])) ? 0 : $this->request->post['selectedTab'];
 
-			$this->response->redirect($this->url->link('module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL'));
+			$this->response->redirect($this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL'));
 		}
 
 		// Set language data
@@ -199,7 +199,7 @@ class ControllerModuleExcelport extends Controller {
 		$data['text_supported_in_oc1541'] = sprintf($this->language->get('text_supported_in_oc1541'), IMODULE_UPMOST_VERSION);
 		$data['default_store_name'] = $this->config->get('config_name') . $this->language->get('text_default');
 
-		$data['progress_name'] = $this->model_module_excelport->get_progress_name();
+		$data['progress_name'] = $this->model_extension_module_excelport->get_progress_name();
 
 		$data['stores'] = array_values($this->model_setting_store->getStores());
 
@@ -216,11 +216,12 @@ class ControllerModuleExcelport extends Controller {
 			),
 			array(
 				'text'      => $this->language->get('heading_title'),
-				'href'      => $this->url->link('module/excelport', 'token=' . $this->session->data['token'], 'SSL')
+				'href'      => $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'], 'SSL')
+					//TODO: возможно непрально
 			)
 		);
 
-		$data['action'] = $this->url->link('module/excelport', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'], 'SSL');
 		$data['cancel'] = $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL');
 		
 		$data['https_server'] = dirname(HTTPS_SERVER);
@@ -241,9 +242,9 @@ class ControllerModuleExcelport extends Controller {
 			$data['data'] = $configValue;
 		}
 		
-		$data['conditions'] = $this->model_module_excelport->conditions;
-		$data['operations'] = $this->model_module_excelport->operations;
-		$data['tabs'] = $this->model_module_excelport->getTabs();
+		$data['conditions'] = $this->model_extension_module_excelport->conditions;
+		$data['operations'] = $this->model_extension_module_excelport->operations;
+		$data['tabs'] = $this->model_extension_module_excelport->getTabs();
 		$data['header'] = $this->load->controller('common/header');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['column_left'] = $this->load->controller('common/column_left');
@@ -258,9 +259,9 @@ class ControllerModuleExcelport extends Controller {
 		ini_set('max_execution_time', 900);
 		ini_set('display_errors', 1);
 		ini_set('error_reporting', E_ALL);
-		$this->load->model('module/excelport');
+		$this->load->model('extension/module/excelport');
 		$error = false;
-		//$this->model_module_excelport->deleteProgress();
+		//$this->model_extension_module_excelport->deleteProgress();
 		
 		set_error_handler(
 			create_function(
@@ -271,7 +272,7 @@ class ControllerModuleExcelport extends Controller {
 		
 		try {
 			$this->session->data['success'] = array();
-			if ($this->model_module_excelport->exportXLS(
+			if ($this->model_extension_module_excelport->exportXLS(
 				$this->request->post['ExcelPort']['Export']['DataType'], 
 				$this->request->post['ExcelPort']['Export']['Language'], 
 				$this->request->post['ExcelPort']['Export']['Store'], IMODULE_ROOT . IMODULE_TEMP_FOLDER, 
@@ -289,7 +290,7 @@ class ControllerModuleExcelport extends Controller {
 		}
 		
 		restore_error_handler();
-		$progress = $this->model_module_excelport->getProgress($error);
+		$progress = $this->model_extension_module_excelport->getProgress($error);
 		header('Content-Type: application/json');
 		echo json_encode($progress);
 		exit;
@@ -302,10 +303,10 @@ class ControllerModuleExcelport extends Controller {
 		ini_set('max_execution_time', 900);
 		ini_set('display_errors', 1);
 		ini_set('error_reporting', E_ALL);
-		$this->load->model('module/excelport');
+		$this->load->model('extension/module/excelport');
 		$error = false;
 		
-		//$this->model_module_excelport->deleteProgress();
+		//$this->model_extension_module_excelport->deleteProgress();
 		if (!empty($this->session->data['uploaded_files'])) {
 			$file = $this->session->data['uploaded_files'][0];
 			
@@ -319,7 +320,7 @@ class ControllerModuleExcelport extends Controller {
 			try {
 				$this->session->data['success'] = array();
 
-				$this->model_module_excelport->importXLS($this->request->post['ExcelPort']['Import']['DataType'], $this->request->post['ExcelPort']['Import']['Language'], $file, $this->request->post['ExcelPort']['Settings'], !empty($this->request->post['ExcelPort']['Import']['AddAsNew']));
+				$this->model_extension_module_excelport->importXLS($this->request->post['ExcelPort']['Import']['DataType'], $this->request->post['ExcelPort']['Import']['Language'], $file, $this->request->post['ExcelPort']['Settings'], !empty($this->request->post['ExcelPort']['Import']['AddAsNew']));
 
                 $this->load->model('setting/setting');
 
@@ -335,12 +336,12 @@ class ControllerModuleExcelport extends Controller {
 			
 		} else {
 			$this->language->load('module/excelport');
-			$progress = $this->model_module_excelport->getProgress();
+			$progress = $this->model_extension_module_excelport->getProgress();
 			$progress['finishedImport'] = true;
-			$this->model_module_excelport->setProgress($progress);
+			$this->model_extension_module_excelport->setProgress($progress);
 		}
 		
-		$progress = $this->model_module_excelport->getProgress($error);
+		$progress = $this->model_extension_module_excelport->getProgress($error);
 		header('Content-Type: application/json');
 		echo json_encode($progress);
 		exit;
@@ -349,21 +350,21 @@ class ControllerModuleExcelport extends Controller {
 	public function download() {
 		header('Cache-Control: no-cache, no-store');
 		$files = $this->session->data['generated_files'];
-		$this->load->model('module/excelport');
+		$this->load->model('extension/module/excelport');
 		
 		if (!empty($files)) {
 			$this->load->model('localisation/language');
 			
 			$name = 'excelport_' . str_replace('/', '_', substr(HTTP_CATALOG, 7, strlen(HTTP_CATALOG) - 8)) . '_' . date("Y-m-d_H-i-s") . ".zip";
 			
-			$file = $this->model_module_excelport->createZip($files, IMODULE_ROOT . IMODULE_TEMP_FOLDER . '/' . $name, true, IMODULE_ROOT . IMODULE_TEMP_FOLDER . '/');
+			$file = $this->model_extension_module_excelport->createZip($files, IMODULE_ROOT . IMODULE_TEMP_FOLDER . '/' . $name, true, IMODULE_ROOT . IMODULE_TEMP_FOLDER . '/');
 			if (file_exists($file) && !empty($file)) {
-				$this->model_module_excelport->createDownload($file, false);
+				$this->model_extension_module_excelport->createDownload($file, false);
 			} else {
-				$this->model_module_excelport->cleanTemp();	
+				$this->model_extension_module_excelport->cleanTemp();	
 			}
 		} else {
-			$this->model_module_excelport->cleanTemp();	
+			$this->model_extension_module_excelport->cleanTemp();	
 		}
 	}
 	
@@ -372,8 +373,8 @@ class ControllerModuleExcelport extends Controller {
 	}
 	
 	public function uninstall() {
-		$this->load->model('module/excelport');
-		$this->model_module_excelport->deleteSetting('excelport');
+		$this->load->model('extension/module/excelport');
+		$this->model_extension_module_excelport->deleteSetting('excelport');
 	}
 	
 	

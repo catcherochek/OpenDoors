@@ -268,7 +268,7 @@ jq(window).load(function() {
         loopXHR.abort();
         if (!downloaded) {
           jq('#progressinfo').html('<?php echo $text_file_downloading; ?>');
-          document.location.href = "index.php?token=" + token + "&route=module/excelport/download";
+          document.location.href = "index.php?token=" + token + "&route=extension/module/excelport/download";
           downloaded = true;
         }
         if (importing) {
