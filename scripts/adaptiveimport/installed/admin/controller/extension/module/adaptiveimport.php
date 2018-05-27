@@ -33,13 +33,18 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 		$this->load->model('setting/setting');//загрузка массива setting из БД. admin/model/settimg/setting.php
 		$this->load->model('localisation/language');//Возможно языковые параметры языка
 		
-// 		$this->model_extension_module_excelport->openstock_integrate();
+		//интегрирует файл vendors/excelport/excelport_openstock.xml в систему vqmod, которая изменяет ебану кучу файлов перед run-time'ом в папке admin\model\extension\module\
+		// 		$this->model_extension_module_excelport->openstock_integrate();// cм. файл vendors/excelport/excelport_openstock.xml
 		
+		
+		//проверяет удачно ли скопированы файлы
 //         if ($this->model_extension_module_excelport->openstock_installed()) {
 //             $data['openstock_installed'] = $this->language->get('text_openstock_installed');
 //         }
 
-// 		$this->response->addHeader('Cache-Control: no-cache, no-store');
+		
+//добавляем заголовок к ответу  см. https://woo.zp.ua/opdoc/classes/method/id-2368/   и в system/library/response.php
+ 		$this->response->addHeader('Cache-Control: no-cache, no-store');
 		
 // 		$this->model_extension_module_excelport->ini_settings();
 
