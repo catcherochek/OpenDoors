@@ -30,7 +30,7 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 
 		$this->load->model('extension/module/adaptiveimport');//загрузка модели по пути admin\model\extension\module\adaptiveimport.php
         $this->load->model('setting/store');//Возможно загрузка переменных магазина по аналогии с Setting
-		$this->load->model('setting/setting');//загрузка массива setting из БД.
+		$this->load->model('setting/setting');//загрузка массива setting из БД. admin/model/settimg/setting.php
 		$this->load->model('localisation/language');//Возможно языковые параметры языка
 		
 // 		$this->model_extension_module_excelport->openstock_integrate();
