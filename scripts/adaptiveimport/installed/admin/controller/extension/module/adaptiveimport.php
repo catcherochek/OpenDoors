@@ -34,6 +34,7 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 		$this->load->model('localisation/language');//Возможно языковые параметры языка
 		
 		//интегрирует файл vendors/excelport/excelport_openstock.xml в систему vqmod, которая изменяет ебану кучу файлов перед run-time'ом в папке admin\model\extension\module\
+		//см https://github.com/vqmod/vqmod/wiki
 		// 		$this->model_extension_module_excelport->openstock_integrate();// cм. файл vendors/excelport/excelport_openstock.xml
 		
 		
@@ -46,16 +47,17 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 //добавляем заголовок к ответу  см. https://woo.zp.ua/opdoc/classes/method/id-2368/   и в system/library/response.php
  		$this->response->addHeader('Cache-Control: no-cache, no-store');
 		
-// 		$this->model_extension_module_excelport->ini_settings();
+ 		$this->model_extension_module_adaptiveimport->ini_settings();//параметры для пхп model\extension\module\adaptiveimport.php->ini_settings()
 
 //         if (stripos($this->request->server['REQUEST_URI'], 'com_mijoshop') !== FALSE) {
 //             $this->document->addStyle('../opencart/admin/view/stylesheet/excelport.css');
 //         } else {
-// 	        $this->document->addStyle('view/stylesheet/excelport.css');
+        $this->document->addStyle('view/stylesheet/excelport.css');
 //         }
-
-// 		$this->document->setTitle($this->language->get('heading_title'));
-		
+		//титулка для странички
+ 		$this->document->setTitle($this->language->get('heading_title'));
+//возврат в скрипт ч-з форму, пост методом и у юзера есть рава на редактирование
+//пока мисть пропускаем
 // 		if ($this->request->server['REQUEST_METHOD'] == 'POST' && $this->validate()) {
 
 // 			if (!empty($this->request->post['OaXRyb1BhY2sgLSBDb21'])) {
@@ -128,70 +130,73 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 // 			$this->response->redirect($this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL'));
 // 		}
 
+ 		
+ 		
+ 		
 // 		// Set language data
-// 		$variables = array(
-// 			'heading_title',
-// 			'text_enabled',
-// 			'text_disabled',
-// 			'text_content_top',
-// 			'text_content_bottom',
-// 			'text_column_left',
-// 			'text_column_right',
-// 			'text_activate',
-// 			'text_not_activated',
-// 			'text_click_activate',
-// 			'entry_code',
-// 			'button_save',
-// 			'button_cancel',
-// 			'entry_layouts_active',
-// 			'text_question_data',
-// 			'text_datatype_option_products',
-// 			'text_question_store',
-// 			'text_question_language',
-// 			'button_export',
-// 			'text_note',
-// 			'text_learn_to_increase',
-// 			'button_import',
-// 			'text_question_data_import',
-// 			'text_question_store_import',
-// 			'text_question_language_import',
-// 			'text_question_file_import',
-// 			'text_file_generating',
-// 			'text_file_downloading',
-// 			'text_import_done',
-// 			'text_preparing_data',
-// 			'text_export_entries_number',
-// 			'text_import_limit',
-// 			'text_confirm_delete_other',
-// 			'text_question_delete_other',
-// 			'text_question_type_export',
-// 			'text_question_add_as_new',
-// 			'text_datatype_option_categories',
-// 			'text_datatype_option_attributes',
-// 			'text_toggle_filter',
-//             'text_last_import',
-// 			'button_add_condition',
-// 			'button_discard_condition',
-// 			'text_conjunction',
-//             'text_datatype_option_manufacturers',
-// 			'text_the_value',
-// 			'help_conjunction',
-// 			'text_datatype_option_customers',
-// 			'text_datatype_option_customer_groups',
-// 			'text_datatype_option_options',
-// 			'text_datatype_option_orders'
-// 		);
-
-// 		foreach ($variables as $variable) $data[$variable] = $this->language->get($variable);
+		$variables = array(
+			'heading_title',
+			'text_enabled',
+			'text_disabled',
+			'text_content_top',
+			'text_content_bottom',
+			'text_column_left',
+			'text_column_right',
+			'text_activate',
+			'text_not_activated',
+			'text_click_activate',
+			'entry_code',
+			'button_save',
+			'button_cancel',
+			'entry_layouts_active',
+			'text_question_data',
+			'text_datatype_option_products',
+			'text_question_store',
+			'text_question_language',
+			'button_export',
+			'text_note',
+			'text_learn_to_increase',
+			'button_import',
+			'text_question_data_import',
+			'text_question_store_import',
+			'text_question_language_import',
+			'text_question_file_import',
+			'text_file_generating',
+			'text_file_downloading',
+			'text_import_done',
+			'text_preparing_data',
+			'text_export_entries_number',
+			'text_import_limit',
+			'text_confirm_delete_other',
+			'text_question_delete_other',
+			'text_question_type_export',
+			'text_question_add_as_new',
+			'text_datatype_option_categories',
+			'text_datatype_option_attributes',
+			'text_toggle_filter',
+            'text_last_import',
+			'button_add_condition',
+			'button_discard_condition',
+			'text_conjunction',
+            'text_datatype_option_manufacturers',
+			'text_the_value',
+			'help_conjunction',
+			'text_datatype_option_customers',
+			'text_datatype_option_customer_groups',
+			'text_datatype_option_options',
+			'text_datatype_option_orders'
+		);
+//подгружаем всю хуйню из файла языка в контроллер, для дальнейшей работы в моделе и в отображении
+ 		foreach ($variables as $variable) $data[$variable] = $this->language->get($variable);
 		
-// 		$data['error_warning'] = '';
-// 		$data['success_message'] = '';
-
+ 		$data['error_warning'] = '';
+ 		$data['success_message'] = '';
+//наверное это тру   когда експорт успешно прошел
 // 		if (!empty($this->session->data['excelport_success'])) {
 // 			$data['success_message'] = implode('<br />', $this->session->data['excelport_success']);
 // 			unset($this->session->data['excelport_success']);
 // 		}
-
+// добавление доп описаний к ошибке ошибки, если она есть
 // 		if (!empty($this->session->data['excelport_error'])) {
 // 			$this->error = array_merge($this->error, $this->session->data['excelport_error']);
 // 			unset($this->session->data['excelport_error']);
@@ -253,8 +258,9 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 // 		$data['header'] = $this->load->controller('common/header');
 // 		$data['footer'] = $this->load->controller('common/footer');
 // 		$data['column_left'] = $this->load->controller('common/column_left');
-
-// 		$this->response->setOutput($this->load->view('module/excelport.tpl', $data));
+//подгружаем само  отображение module/extension/adaptiveimport.tpl
+//sends data to the browser whether it's HTML or JSON and
+ 		$this->response->setOutput($this->load->view('module/extension/excelport.tpl', $data));
 	}
 	
 	public function ajaxgenerate() {
