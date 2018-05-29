@@ -89,7 +89,7 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 // 					case 'import' : {
 // 						$this->model_extension_module_excelport->deleteProgress();
 // 						$this->session->data['ajaximport'] = true;
-						
+						//переменная с путем с загруженым файлом
 // 						$uploadedFile = $this->model_extension_module_excelport->getStandardFile($this->request->files['ExcelPort'], 'Import', 'File');
 						
 // 						$this->session->data['uploaded_files'] = $this->model_extension_module_excelport->prepareUploadedFile($uploadedFile);
@@ -126,8 +126,8 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 // 			}
 			
 // 			$selectedTab = (empty($this->request->post['selectedTab'])) ? 0 : $this->request->post['selectedTab'];
-
-// 			$this->response->redirect($this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL'));
+ 			$var1 = $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL');
+ 			$this->response->redirect($var1);
 // 		}
 
  		
