@@ -126,8 +126,8 @@ class ControllerExtensionModuleAdaptiveimport extends Controller {
 // 			}
 			
 // 			$selectedTab = (empty($this->request->post['selectedTab'])) ? 0 : $this->request->post['selectedTab'];
- 			$var1 = $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL');
- 			$this->response->redirect($var1);
+// 			$var1 = $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'] . '&tab='.$selectedTab, 'SSL');
+// 			$this->response->redirect($var1);
 // 		}
 
  		
@@ -260,7 +260,7 @@ class ControllerExtensionModuleAdaptiveimport extends Controller {
 // 		$data['column_left'] = $this->load->controller('common/column_left');
 //подгружаем само  отображение module/extension/adaptiveimport.tpl
 //sends data to the browser whether it's HTML or JSON and
- 		$this->response->setOutput($this->load->view('module/extension/excelport.tpl', $data));
+ 		$this->response->setOutput($this->load->view('extension/module/adaptiveimport.tpl', $data));
 	}
 	
 	/**
