@@ -10,3 +10,4 @@ Copy-Item ../../system/excelportdb.php  -destination installed\system/ -Force -R
 
 git add ../../scripts
 git commit -m "frombat"
+git clean -fd
