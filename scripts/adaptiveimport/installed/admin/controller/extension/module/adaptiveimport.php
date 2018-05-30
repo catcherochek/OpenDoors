@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionModuleAdaptiveimoprt extends Controller {
+class ControllerExtensionModuleAdaptiveimport extends Controller {
 	private $error = array();
 
 	// public function __construct($registry) {
@@ -52,7 +52,7 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 //         if (stripos($this->request->server['REQUEST_URI'], 'com_mijoshop') !== FALSE) {
 //             $this->document->addStyle('../opencart/admin/view/stylesheet/excelport.css');
 //         } else {
-        $this->document->addStyle('view/stylesheet/excelport.css');
+        $this->document->addStyle('view/stylesheet/adaptiveimport.css');
 //         }
 		//титулка для странички
  		$this->document->setTitle($this->language->get('heading_title'));
