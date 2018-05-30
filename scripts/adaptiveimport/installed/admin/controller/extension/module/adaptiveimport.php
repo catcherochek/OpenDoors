@@ -215,21 +215,21 @@ class ControllerExtensionModuleAdaptiveimport extends Controller {
 
 // 		$data['languages'] = array_values($this->model_localisation_language->getLanguages());
 		
-//   	$data['breadcrumbs'] = array(
-// 			array(
-// 				'text'      => $this->language->get('text_home'),
-// 				'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL')
-// 			),
-// 			array(
-// 				'text'      => $this->language->get('text_module'),
-// 				'href'      => $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL')
-// 			),
-// 			array(
-// 				'text'      => $this->language->get('heading_title'),
-// 				'href'      => $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'], 'SSL')
-// 					//TODO: возможно непрально
-// 			)
-// 		);
+  	$data['breadcrumbs'] = array(
+			array(
+				'text'      => $this->language->get('text_home'),
+				'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL')
+			),
+			array(
+				'text'      => $this->language->get('text_module'),
+				'href'      => $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL')
+			),
+			array(
+				'text'      => $this->language->get('heading_title'),
+				'href'      => $this->url->link('extension/module/adaptiveimport', 'token=' . $this->session->data['token'], 'SSL')
+					//TODO: возможно непрально
+			)
+		);
 
 // 		$data['action'] = $this->url->link('extension/module/excelport', 'token=' . $this->session->data['token'], 'SSL');
 // 		$data['cancel'] = $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL');
@@ -252,12 +252,12 @@ class ControllerExtensionModuleAdaptiveimport extends Controller {
 // 			$data['data'] = $configValue;
 // 		}
 		
-// 		$data['conditions'] = $this->model_extension_module_excelport->conditions;
-// 		$data['operations'] = $this->model_extension_module_excelport->operations;
-// 		$data['tabs'] = $this->model_extension_module_excelport->getTabs();
-// 		$data['header'] = $this->load->controller('common/header');
-// 		$data['footer'] = $this->load->controller('common/footer');
-// 		$data['column_left'] = $this->load->controller('common/column_left');
+ 		//$data['conditions'] = $this->model_extension_module_excelport->conditions;
+ 		//$data['operations'] = $this->model_extension_module_excelport->operations;
+ 		//$data['tabs'] = $this->model_extension_module_excelport->getTabs();
+ 		$data['header'] = $this->load->controller('common/header');
+ 		$data['footer'] = $this->load->controller('common/footer');
+ 		$data['column_left'] = $this->load->controller('common/column_left');
 //подгружаем само  отображение module/extension/adaptiveimport.tpl
 //sends data to the browser whether it's HTML or JSON and
  		$this->response->setOutput($this->load->view('extension/module/adaptiveimport.tpl', $data));

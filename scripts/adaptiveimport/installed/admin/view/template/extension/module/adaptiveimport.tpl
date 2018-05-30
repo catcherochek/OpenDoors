@@ -25,11 +25,10 @@
     <?php } ?>
     <div class="panel panel-default">
       <div class="panel-body">
-        <ul class="nav nav-tabs">
-          <?php foreach ($tabs as $tab) { ?>
-          <li><a class="excelport_tab" href="#tab-<?php echo $tab['id']; ?>" data-toggle="tab"><?php echo $tab['name']; ?></a></li>
-          <?php } ?>
-        </ul>
+        <div>
+			<p>Мой текст</p>
+			
+		</div>
         
           
         
