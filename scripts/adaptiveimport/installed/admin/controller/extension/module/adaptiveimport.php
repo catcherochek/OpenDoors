@@ -263,16 +263,23 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
  		$this->response->setOutput($this->load->view('module/extension/excelport.tpl', $data));
 	}
 	
+	/**
+	 * принимает на стороне сервера аякс запрос.
+	 */
 	public function ajaxgenerate() {
-// 		header('Cache-Control: no-cache, no-store');
-// 		$this->session->data['start_time'] = time();
-// 		ini_set('memory_limit', '1024M');
-// 		ini_set('max_execution_time', 900);
-// 		ini_set('display_errors', 1);
-// 		ini_set('error_reporting', E_ALL);
-// 		$this->load->model('extension/module/excelport');
-// 		$error = false;
-// 		//$this->model_extension_module_excelport->deleteProgress();
+// формирование заголовка		
+		header('Cache-Control: no-cache, no-store');
+//защита от хакеров, установка времени и т.п.
+ 		$this->session->data['start_time'] = time();
+ 		ini_set('memory_limit', '1024M');
+ 		ini_set('max_execution_time', 900);
+ 		ini_set('display_errors', 1);
+ 		ini_set('error_reporting', E_ALL);
+//подгрузка модели
+ 		$this->load->model('extension/module/excelport');
+ 		
+ 		$error = false;
+ 		$this->model_extension_module_excelport->deleteProgress();
 		
 // 		set_error_handler(
 // 			create_function(
@@ -284,7 +291,7 @@ class ControllerExtensionModuleAdaptiveimoprt extends Controller {
 // 		try {
 // 			$this->session->data['success'] = array();
 // 			if ($this->model_extension_module_excelport->exportXLS(
-// 				$this->request->post['ExcelPort']['Export']['DataType'], 
+// 				$this->request->post['ExcelPort']['Export']['DataType'], // $type
 // 				$this->request->post['ExcelPort']['Export']['Language'], 
 // 				$this->request->post['ExcelPort']['Export']['Store'], IMODULE_ROOT . IMODULE_TEMP_FOLDER, 
 // 				$this->request->post['ExcelPort']['Settings'], 

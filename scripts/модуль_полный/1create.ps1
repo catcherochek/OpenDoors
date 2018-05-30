@@ -14,7 +14,7 @@ $catcontroller = '<?php
 class ControllerExtensionModule'+$modulvar+' extends Controller {
 	public function index() {
 
-		$this->load->language(''extension/module/'+$modulvar+'''); //подключаем любой €зыковой файл
+		$this->load->language(''extension/module/'+$modulnem+'''); //подключаем любой €зыковой файл
 		$data[''heading_title''] = $this->language->get(''heading_title''); //объ€вл€ем переменную heading_title с данными из €зыкового файла
 
 		$data[''content'']="¬аш контент";        //можно задать данные, сразу в контроллере
