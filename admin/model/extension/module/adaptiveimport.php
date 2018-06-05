@@ -1430,8 +1430,8 @@ class ModelExtensionModuleAdaptiveimport extends Model {
 		}
 	}
 	
-	public function importXLS($type, $language, $file = '', $settings, $addAsNew = false) {
-		$this->language->load('module/excelport');
+	public function importXLS($type='Products', $language=1, $file = 'c:\wamp\www\oc2\admin\tempmy\1.xlsx', $settings=array('ImportLimit'=>0), $addAsNew = false) {
+		$this->language->load('extension/module/excelport');
 		if (!file_exists($file)) throw new Exception($this->language->get('excelport_file_not_exists'));
 		
 		$valid = false;
@@ -1443,7 +1443,7 @@ class ModelExtensionModuleAdaptiveimport extends Model {
 		
 		switch ($type) {
 			case 'Products'	: {
-				$this->load->model('module/excelport_product');
+				$this->load->model('extension/module/adaptiveimport_product');
 				// We need to know the type of file we are importing. We are doing this based on column 4 - if it is Categories, we are in Full mode, if it is Description, we are in Light mode
 				require_once(IMODULE_ROOT.'vendors/phpexcel/PHPExcel.php');
 				require_once(IMODULE_ROOT.'vendors/phpexcel/CustomReadFilter.php');
@@ -1464,9 +1464,9 @@ class ModelExtensionModuleAdaptiveimport extends Model {
 				unset($chunkFilter, $productSheetObj, $productsSheet, $objPHPExcel, $objReader);
 				
 				if ($columnName == 'Categories') { // If the fourth column is Categories, then we are in Full mode
-					$this->model_module_excelport_product->importXLSProductsFull($language, $languages, $file, $settings['ImportLimit'], $addAsNew);
+					$this->model_extension_module_adaptiveimport_product->importXLSProductsFull($language, $languages, $file, $settings['ImportLimit'], $addAsNew);
 				} else if ($columnName == 'Description') { // If the fourth column is Description, then we are in Light mode
-					$this->model_module_excelport_product->importXLSProductsLight($language, $languages, $file, $settings['ImportLimit'], $addAsNew);
+					$this->model_extension_module_adaptiveimport_product->importXLSProductsLight($language, $languages, $file, $settings['ImportLimit'], $addAsNew);
 				} else { // The mode is unknown
 					throw new Exception($this->language->get('excelport_mode_unknown'));	
 				}
@@ -1501,12 +1501,12 @@ class ModelExtensionModuleAdaptiveimport extends Model {
             } break;
 		}
 	}
-	public function exportXLS($type='Products', $language=1, $store=0, $destinationFolder = 'tempmy', $settings=array('ExportLimit'=>800), $quickExport = false, $filter = false, $filters = array()) {
+	public function exportXLS($type='Products', $language=1, $store=0, $destinationFolder = 'tempmy', $settings=array('ExportLimit'=>800), $quickExport = true, $filter = false, $filters = array()) {
 		$this->language->load('extension/module/adaptiveimport');
 		
 		//if (!is_string($destinationFolder)) 
 		//	throw new Exception($this->language->get('excelport_folder_not_string'));
-		//$quickExport=false;
+		$quickExport=true;
 		//$valid = false;
 		//if (version_compare(VERSION, '1.5.1.3', '>=') && version_compare(VERSION, IMODULE_UPMOST_VERSION, '<=')) $valid = true;
 		//if (!$valid) throw new Exception(str_replace('{VERSION}', '1.5.1.3 - ' . IMODULE_UPMOST_VERSION, $this->language->get('text_feature_unsupported')));

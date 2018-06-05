@@ -1,42 +1,42 @@
-$modulnem = "helloworld"
-$modulvar = "Helloworld"
-New-Item -Force catalog\view\theme\default\template\extension\module\$modulnem.tpl -type file
-New-Item -Force catalog\controller\extension\module\$modulnem.php -type file
-New-Item -Force catalog\language\ru-ru\extension\module\$modulnem.php -type file
+$modulnem = "excelimport"
+$modulvar = "ExcelImport"
+# New-Item -Force catalog\view\theme\default\template\extension\module\$modulnem.tpl -type file
+# New-Item -Force catalog\controller\extension\module\$modulnem.php -type file
+# New-Item -Force catalog\language\ru-ru\extension\module\$modulnem.php -type file
 New-Item -Force admin\view\template\extension\module\$modulnem.tpl -type file
 New-Item -Force admin\controller\extension\module\$modulnem.php -type file
 New-Item -Force admin\language\ru-ru\extension\module\$modulnem.php -type file
 
-$catlang = '<?php
-$_[''heading_title''] = ''«аголовок модул€'';'
+# $catlang = '<?php
+# $_[''heading_title''] = ''«аголовок модул€'';'
 
-$catcontroller = '<?php  
-class ControllerExtensionModule'+$modulvar+' extends Controller {
-	public function index() {
+# $catcontroller = '<?php  
+# class ControllerExtensionModule'+$modulvar+' extends Controller {
+	# public function index() {
 
-		$this->load->language(''extension/module/'+$modulnem+'''); //подключаем любой €зыковой файл
-		$data[''heading_title''] = $this->language->get(''heading_title''); //объ€вл€ем переменную heading_title с данными из €зыкового файла
+		# $this->load->language(''extension/module/'+$modulnem+'''); //подключаем любой €зыковой файл
+		# $data[''heading_title''] = $this->language->get(''heading_title''); //объ€вл€ем переменную heading_title с данными из €зыкового файла
 
-		$data[''content'']="¬аш контент";        //можно задать данные, сразу в контроллере
+		# $data[''content'']="¬аш контент";        //можно задать данные, сразу в контроллере
 
-		$this->load->model(''catalog/product''); //подключаем любую модель из OpenCart
+		# $this->load->model(''catalog/product''); //подключаем любую модель из OpenCart
 
-		$data[''product_info'']=$this->model_catalog_product->getProduct(42); //используем метод подключенной модели, например getProduct(42) Ц информаци€ о продукте id  42
+		# $data[''product_info'']=$this->model_catalog_product->getProduct(42); //используем метод подключенной модели, например getProduct(42) Ц информаци€ о продукте id  42
 
-		//стандартна€ процедура дл€ контроллеров OpenCart, выбираем файл представлени€ модул€ дл€ вывода данных
-		if (file_exists(DIR_TEMPLATE . $this->config->get(''config_template'') . ''/template/extension/module/'+$modulnem+'.tpl'')) {
-			return $this->load->view($this->config->get(''config_template'') . ''/template/extension/module/'+$modulnem+'.tpl'', $data);
-		} else {
-			return $this->load->view(''default/template/extension/module/'+$modulnem+'.tpl'', $data);
-		}		
+		# //стандартна€ процедура дл€ контроллеров OpenCart, выбираем файл представлени€ модул€ дл€ вывода данных
+		# if (file_exists(DIR_TEMPLATE . $this->config->get(''config_template'') . ''/template/extension/module/'+$modulnem+'.tpl'')) {
+			# return $this->load->view($this->config->get(''config_template'') . ''/template/extension/module/'+$modulnem+'.tpl'', $data);
+		# } else {
+			# return $this->load->view(''default/template/extension/module/'+$modulnem+'.tpl'', $data);
+		# }		
 
-	}
-}?>'
-$catview = '<?php echo $heading_title; ?>
-<br>
-<?php echo $content; ?>
-<br>
-<?php echo $product_info[''name'']; ?>'
+	# }
+# }?>'
+# $catview = '<?php echo $heading_title; ?>
+# <br>
+# <?php echo $content; ?>
+# <br>
+# <?php echo $product_info[''name'']; ?>'
 
 $admlang = '<?php
 // »м€ модул€, такой он будет виден на вкладке Ђмодулиї в панели управлени€ и внутри настроек модул€

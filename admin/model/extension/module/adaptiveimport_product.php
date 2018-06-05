@@ -1,9 +1,9 @@
 <?php 
 class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdaptiveimport {
 	public function importXLSProductsFull($language, &$allLanguages, $file, $importLimit, $addAsNew = false) {
-		$this->language->load('module/excelport');
-		if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
-		
+		$this->language->load('extension/module/excelport');
+		//if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
+		//$file = IMODULE_ROOT.'1.xlsx';
 		$default_language = $this->config->get('config_language_id');
 		$this->config->set('config_language_id', $language);
 		
@@ -15,6 +15,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		// Create new PHPExcel object
 		
 		require_once(IMODULE_ROOT.'vendors/phpexcel/CustomReadFilter.php');
+		$size = $this->productSize*$progress['importedCount'] + 2;
 		$chunkFilter = new CustomReadFilter(array("Products" => array('A', ($this->productSize*$progress['importedCount'] + 2), 'Q', ($this->productSize*($progress['importedCount'] + $importLimit) + 1)), "products" => array('A', ($this->productSize*$progress['importedCount'] + 2), 'Q', ($this->productSize*($progress['importedCount'] + $importLimit) + 1))), true); 
 		
 		$madeImports = false;
@@ -24,10 +25,14 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		$objReader->setLoadSheetsOnly(array("Products", "products"));
 		$objPHPExcel = $objReader->load($file);
 		$progress['importingFile'] = substr($file, strripos($file, '/') + 1);
-		$productsSheet = 0;
+		$productsSheet = 1;
 		
-		$productSheetObj = $objPHPExcel->setActiveSheetIndex($productsSheet);
 		
+
+		
+		
+		$productSheetObj = $objPHPExcel->setActiveSheetIndex(0);
+		$v1 = $objPHPExcel->getSheet(0)->getCell('B2')->getValue();
 		$progress['all'] = -1; //(int)(($productSheetObj->getHighestRow() - 2)/$this->productSize);
 		$this->setProgress($progress);
 		
@@ -132,7 +137,8 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		
 		do {
 			$this->custom_set_time_limit();
-			$product_name = strval($productSheetObj->getCell(PHPExcel_Cell::stringFromColumnIndex($source[0] + $map['name'][0]) . ($source[1] + $map['name'][1]))->getValue());
+			$vallll=PHPExcel_Cell::stringFromColumnIndex($source[0] + $map['name'][0]) . ($source[1] + $map['name'][1]);
+			$product_name = strval($productSheetObj->getCell($vallll)->getValue());
 			$product_name = $this->special_chars($product_name);
 			if (!empty($product_name)) {
 				$product_model = $productSheetObj->getCell(PHPExcel_Cell::stringFromColumnIndex($source[0] + $map['model'][0]) . ($source[1] + $map['model'][1]))->getValue();
@@ -558,7 +564,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		$progress['done'] = true;
 		if (!$madeImports) {
 			$progress['importedCount'] = 0;
-			array_shift($this->session->data['uploaded_files']);
+			//array_shift($this->session->data['uploaded_files']);
 		}
 		$this->setProgress($progress);
 		

@@ -16,7 +16,7 @@ final class MySQLi {
 
 	public function query($sql) {
 		$query = $this->connection->query($sql);
-
+		file_put_contents('query.txt', $sql."\n", FILE_APPEND);
 		if (!$this->connection->errno) {
 			if ($query instanceof \mysqli_result) {
 				$data = array();

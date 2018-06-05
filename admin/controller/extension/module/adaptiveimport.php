@@ -290,11 +290,9 @@ class ControllerExtensionModuleAdaptiveimport extends Controller {
 		
 		try {
 			$this->session->data['success'] = array();
-			if ($this->model_extension_module_adaptiveimport->exportXLS()) {
+			$this->model_extension_module_adaptiveimport->exportXLS();
 				//$this->session->data['success'][] = 'Success'; // TODO - AJAX
-			} else {
-				//$this->session->data['error_warning'][] = 'I\'m a Failure :(';
-			}
+			//$this->model_extension_module_adaptiveimport->importXLS();
 		} catch (Exception $e) {
 			$error = $e->getMessage();	
 		}
