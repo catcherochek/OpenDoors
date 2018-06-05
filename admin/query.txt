@@ -4584,3 +4584,313 @@ SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_
 SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
 SET SESSION group_concat_max_len = 1000000;
 SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE username = 'admin' AND (password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1('1111'))))) OR password = 'b59c67bf196a4758191e42f76670ceba') AND status = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) AS total FROM `oc_order` WHERE (order_status_id = '2' OR order_status_id = '3' OR order_status_id = '1' OR order_status_id = '12' OR order_status_id = '5')
+SELECT COUNT(*) AS total FROM `oc_order` WHERE (order_status_id = '3' OR order_status_id = '5')
+SELECT COUNT(*) AS total FROM `oc_return`r WHERE r.return_status_id = '2'
+SELECT COUNT(*) AS total FROM `oc_customer_online` co LEFT JOIN oc_customer c ON (co.customer_id = c.customer_id)
+SELECT COUNT(*) AS total FROM oc_customer WHERE approved = '0'
+SELECT COUNT(DISTINCT p.product_id) AS total FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id) WHERE pd.language_id = '1' AND p.quantity = '0'
+SELECT COUNT(*) AS total FROM oc_review r LEFT JOIN oc_product_description pd ON (r.product_id = pd.product_id) WHERE pd.language_id = '1' AND r.status = '0'
+SELECT COUNT(*) AS total FROM oc_affiliate WHERE approved = '0'
+SELECT * FROM oc_store ORDER BY url
+SELECT *, (SELECT ug.name FROM `oc_user_group` ug WHERE ug.user_group_id = u.user_group_id) AS user_group FROM `oc_user` u WHERE u.user_id = '1'
+SELECT COUNT(*) AS total FROM `oc_order` WHERE order_status_id > '0'
+SELECT COUNT(*) AS total FROM `oc_order` WHERE (order_status_id = '3' OR order_status_id = '5')
+SELECT COUNT(*) AS total FROM `oc_order` WHERE (order_status_id = '2' OR order_status_id = '3' OR order_status_id = '1' OR order_status_id = '12' OR order_status_id = '5')
+SELECT order_status_id, name FROM oc_order_status WHERE language_id = '1' ORDER BY name
+SELECT COUNT(*) AS total FROM `oc_order` WHERE (order_status_id = '8' OR order_status_id = '11' OR order_status_id = '10' OR order_status_id = '9' OR order_status_id = '7' OR order_status_id = '13')
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_tax_class
+SELECT stock_status_id, name FROM oc_stock_status WHERE language_id = '1' ORDER BY name
+SELECT * FROM oc_length_class lc LEFT JOIN oc_length_class_description lcd ON (lc.length_class_id = lcd.length_class_id) WHERE lcd.language_id = '1'
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOINoc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, concat(group_concat(pi.image separator ','),',',p.image) as image, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, concat(group_concat(pi.image separator ','),',',p.image) as images, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, concat(group_concat(pi.image separator ','),',',p.image) as images, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, concat(group_concat(pi.image separator ','),',',p.image) as images, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800
+SELECT * FROM oc_setting WHERE store_id = '0'
+SELECT * FROM `oc_language` WHERE code = 'ru-ru'
+SELECT * FROM oc_currency
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'shipping' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT tr1.tax_class_id, tr2.tax_rate_id, tr2.name, tr2.rate, tr2.type, tr1.priority FROM oc_tax_rule tr1 LEFT JOIN oc_tax_rate tr2 ON (tr1.tax_rate_id = tr2.tax_rate_id) INNER JOIN oc_tax_rate_to_customer_group tr2cg ON (tr2.tax_rate_id = tr2cg.tax_rate_id) LEFT JOIN oc_zone_to_geo_zone z2gz ON (tr2.geo_zone_id = z2gz.geo_zone_id) LEFT JOIN oc_geo_zone gz ON (tr2.geo_zone_id = gz.geo_zone_id) WHERE tr1.based = 'store' AND tr2cg.customer_group_id = '1' AND z2gz.country_id = '220' AND (z2gz.zone_id = '0' OR z2gz.zone_id = '0') ORDER BY tr1.priority ASC
+SELECT * FROM oc_weight_class wc LEFT JOIN oc_weight_class_description wcd ON (wc.weight_class_id = wcd.weight_class_id) WHERE wcd.language_id = '1'
+SELECT * FROM oc_length_class mc LEFT JOIN oc_length_class_description mcd ON (mc.length_class_id = mcd.length_class_id) WHERE mcd.language_id = '1'
+DELETE FROM oc_cart WHERE (api_id > '0' OR customer_id = '0') AND date_added < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+SELECT * FROM oc_extension WHERE `type` = 'openbay'
+SELECT * FROM `oc_event` ORDER BY `code` ASC
+SELECT * FROM oc_user WHERE user_id = '1' AND status = '1'
+UPDATE oc_user SET ip = '::1' WHERE user_id = '1'
+SELECT permission FROM oc_user_group WHERE user_group_id = '1'
+SELECT COUNT(*) as count FROM (SELECT COUNT(*) FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') WHERE p2s.store_id = '0'  GROUP BY p.product_id) as count_table
+SELECT * FROM oc_manufacturer ORDER BY name ASC
+SELECT cp.category_id AS category_id, GROUP_CONCAT(cd1.name ORDER BY cp.level SEPARATOR '&nbsp;&nbsp;&gt;&nbsp;&nbsp;') AS name, c1.parent_id, c1.sort_order FROM oc_category_path cp LEFT JOIN oc_category c1 ON (cp.category_id = c1.category_id) LEFT JOIN oc_category c2 ON (cp.path_id = c2.category_id) LEFT JOIN oc_category_description cd1 ON (cp.path_id = cd1.category_id) LEFT JOIN oc_category_description cd2 ON (cp.category_id = cd2.category_id) WHERE cd1.language_id = '1' AND cd2.language_id = '1' GROUP BY cp.category_id ORDER BY sort_order ASC
+SELECT *, (SELECT name FROM oc_filter_group_description fgd WHERE f.filter_group_id = fgd.filter_group_id AND fgd.language_id = '1') AS `group` FROM oc_filter f LEFT JOIN oc_filter_description fd ON (f.filter_id = fd.filter_id) WHERE fd.language_id = '1' ORDER BY f.sort_order ASC
+SELECT * FROM oc_store ORDER BY url
+SELECT * FROM oc_download d LEFT JOIN oc_download_description dd ON (d.download_id = dd.download_id) WHERE dd.language_id = '1' ORDER BY dd.name ASC
+SELECT DISTINCT * FROM oc_language WHERE language_id = '1'
+SET SESSION group_concat_max_len = 1000000;
+SELECT *, concat(group_concat(pi.image separator ','),',',p.image) as images, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, pd.tag as tag, p.* FROM oc_product p LEFT JOIN oc_product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '1') LEFT JOIN oc_product_to_store p2s ON (p.product_id = p2s.product_id AND p2s.store_id = '0') RIGHT JOIN oc_product_image pi ON (p.product_id = pi.product_id) WHERE p2s.store_id = '0'  GROUP BY p.product_id ORDER BY p.product_id LIMIT 0, 800

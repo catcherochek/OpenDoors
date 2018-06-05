@@ -1,6 +1,7 @@
 <?php 
 class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdaptiveimport {
 	public function importXLSProductsFull($language, &$allLanguages, $file, $importLimit, $addAsNew = false) {
+		//TODO adaptiveimport_product-IMPORTXLSFULL
 		$this->language->load('extension/module/excelport');
 		//if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
 		//$file = IMODULE_ROOT.'1.xlsx';
@@ -573,6 +574,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 	}
 	
 	public function importXLSProductsLight($language, &$allLanguages, $file, $importLimit, $addAsNew = false) {
+		//TODO adaptiveimport_product-IMPORTXLSLIGHT
 		$this->language->load('module/excelport');
 		if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
 		
@@ -901,6 +903,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 	}
 	
 	public function exportXLSProductsFull($language, $store, $destinationFolder = '', $productNumber, $export_filters = array()) {
+		//TODO adaptiveimport_product-EXPORTXLSFULL
 		$this->language->load('extension/module/adaptiveimport');
 		$this->folderCheck($destinationFolder);
 		
@@ -1923,6 +1926,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 	}
 	
 	public function exportXLSProductsLight($language, $store, $destinationFolder = '', $productNumber, $export_filters = array()) {
+		//TODO adaptiveimport_product-IMPORTXLSLIGHT
 		$this->language->load('module/excelport');
 		$this->folderCheck($destinationFolder);
 		
@@ -2164,7 +2168,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		
 		$this->db->query("SET SESSION group_concat_max_len = 1000000;");
 		
-		$products = $this->db->query($this->getQuery($export_filters, $store, $language) . " ORDER BY p.product_id LIMIT ". $progress['current'] . ", " . $productNumber);
+		$products = $this->db->query($this->getQuery($export_filters, $store, $language, false, true) . " ORDER BY p.product_id LIMIT ". $progress['current'] . ", " . $productNumber);
 		
 		$productSheetObj = $objPHPExcel->setActiveSheetIndex($productsSheet);
 		
@@ -2178,7 +2182,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 			foreach ($products->rows as $myProductIndex => $row) {
 				
 				$this->getData('Products', $row);
-				
+				$row['image']=$row['images'];
 				// Prepare data
 				foreach ($taxClasses as $taxClass) {
 					if ($taxClass['tax_class_id'] == $row['tax_class_id']) { $row['tax_class'] = $taxClass['title']; break; }
@@ -2222,6 +2226,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 				foreach ($extras as $name => $position) {
 					$productSheetObj->setCellValueExplicit($position . ($target[1]), empty($row[$name]) ? '' : $row[$name], PHPExcel_Cell_DataType::TYPE_STRING);
 				}
+				//$generals['image']=41;
 				// General
 				foreach ($generals as $name => $position) {
 					$productSheetObj->setCellValueExplicit(PHPExcel_Cell::stringFromColumnIndex($target[0] + $position) . ($target[1]), empty($row[$name]) && $row[$name] !== '0' ? '' : $row[$name], PHPExcel_Cell_DataType::TYPE_STRING);
@@ -2309,7 +2314,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		return true;
 	}
 	
-	public function getQuery($filters = array(), $store = 0, $language = 1, $count = false) {
+	public function getQuery($filters = array(), $store = 0, $language = 1, $count = false,$addimages = false) {
 		if (empty($filters) || !in_array($filters['Conjunction'], array('AND', 'OR'))) $filters['Conjunction'] = 'OR';
 		
 		$join_rules = array(
@@ -2329,12 +2334,18 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 			'product_special' => "JOIN " . DB_PREFIX . "product_special pspe ON (p.product_id = pspe.product_id)",
 			'product_image' => "JOIN " . DB_PREFIX . "product_image pi ON (p.product_id = pi.product_id)",
 			'product_reward' => "JOIN " . DB_PREFIX . "product_reward pr ON (p.product_id = pr.product_id)",
+			'product_images'=>"RIGHT JOIN ". DB_PREFIX ."product_image pi ON (p.product_id = pi.product_id)",
 			'product_to_layout' => "JOIN " . DB_PREFIX . "product_to_layout p2l ON (p.product_id = p2l.product_id AND p2l.store_id = '" . $store . "') LEFT JOIN " . DB_PREFIX . "layout l ON (p2l.layout_id = l.layout_id)"
 		);
 		
 		$joins = array();
 		$joins['product_description'] = $join_rules['product_description'];
 		$joins['product_to_store'] = $join_rules['product_to_store'];
+		if($addimages){
+			
+			$joins['product_to_images']= $join_rules['product_images'];
+			
+		}
 		if (version_compare(VERSION, '1.5.4', '<')) {
 			$joins['product_tag'] = $join_rules['product_tag'];
 		}
@@ -2375,7 +2386,7 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 			}
 		}
 		
-		$select = $count ? "COUNT(*)" : "*, pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, " . (version_compare(VERSION, '1.5.4', '<') ? 'pt.tag as tag' : 'pd.tag as tag') . ", p.*";
+		$select = $count ? "COUNT(*)" : "*,".($addimages ? " concat(group_concat(pi.image separator ','),',',p.image) as images,":"")." pd.name as name, pd.description as description, pd.meta_description as meta_description, pd.meta_keyword as meta_keyword, pd.meta_title as meta_title, " . (version_compare(VERSION, '1.5.4', '<') ? 'pt.tag as tag' : 'pd.tag as tag') . ", p.*";
 		
 		$query = ($count ? "SELECT COUNT(*) as count FROM (" : "") . "SELECT " . $select . " FROM " . DB_PREFIX . "product p " . implode(" ", $joins) . " WHERE p2s.store_id = '" . $store . "' " . (!empty($wheres) ? " AND (" . implode(" " . $filters['Conjunction'] . " ", $wheres) . ")" : "") . " GROUP BY p.product_id" . ($count ? ") as count_table" : "");
 		
