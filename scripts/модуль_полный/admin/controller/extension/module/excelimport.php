@@ -1,7 +1,7 @@
 ﻿<?php
 class ControllerExtensionModuleExcelImport extends Controller {
 	private $error = array();
-
+	
 	public function index() {
 		$this->load->language('extension/module/excelimport'); //подключаем наш языковой файл
 
@@ -63,6 +63,14 @@ class ControllerExtensionModuleExcelImport extends Controller {
 	}
 
     //обязательный метод в контроллере, он запускается для проверки разрешено ли пользователю изменять настройки данного модуля
+	public function ajaxexport(){
+		// формирование заголовка
+		header('Cache-Control: no-cache, no-store');
+		$this->load->language('extension/module/excelimport');
+		$this->model_extension_module_excelimport->importXLS();
+		echo  json_encode(array('returned_val' => 'yoho'));
+		exit;
+	}
 	protected function validate() {
 		if (!$this->user->hasPermission('modify', 'module/category')) {
 			$this->error['warning'] = $this->language->get('error_permission');

@@ -573,10 +573,11 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		$this->config->set('config_language_id', $default_language);	
 	}
 	
-	public function importXLSProductsLight($language, &$allLanguages, $file, $importLimit, $addAsNew = false) {
-		//TODO adaptiveimport_product-IMPORTXLSLIGHT
-		$this->language->load('module/excelport');
-		if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
+	public function importXLSProductsLight($language, &$allLanguages, $file, $importLimit=100, $addAsNew = false) {
+		//$importLimit количество вводимых строк
+		//TODO: Adaptiveimport_product-IMPORTXLSLIGHT
+		$this->language->load('extension/module/excelport');
+		//if (!is_numeric($importLimit) || $importLimit < 10 || $importLimit > 800) throw new Exception($this->language->get('excelport_import_limit_invalid'));
 		
 		$default_language = $this->config->get('config_language_id');
 		$this->config->set('config_language_id', $language);
@@ -587,9 +588,9 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		
 		require_once(IMODULE_ROOT.'vendors/phpexcel/PHPExcel.php');
 		// Create new PHPExcel object
-		
+		$importLimit=100;
 		require_once(IMODULE_ROOT.'vendors/phpexcel/CustomReadFilter.php');
-		$chunkFilter = new CustomReadFilter(array("Products" => array('A', ($progress['importedCount'] + 2), 'AM', (($progress['importedCount'] + $importLimit) + 1)), "products" => array('A', ($progress['importedCount'] + 2), 'AM', (($progress['importedCount'] + $importLimit) + 1))), true); 
+		$chunkFilter = new CustomReadFilter(array("Products" => array('A', ($progress['importedCount'] + 2), 'AN', (($progress['importedCount'] + $importLimit) + 1)), "products" => array('A', ($progress['importedCount'] + 2), 'AM', (($progress['importedCount'] + $importLimit) + 1))), true); 
 		
 		$madeImports = false;
 		$objReader = new PHPExcel_Reader_Excel2007();
@@ -2596,7 +2597,16 @@ class ModelExtensionModuleAdaptiveimportproduct extends ModelExtensionModuleAdap
 		$this->db->query("UPDATE " . DB_PREFIX . "product SET model = '" . $this->db->escape($data['model']) . "', sku = '" . $this->db->escape($data['sku']) . "', upc = '" . $this->db->escape($data['upc']) . "'" . $extra_select . ", location = '" . $this->db->escape($data['location']) . "', quantity = '" . (int)$data['quantity'] . "', minimum = '" . (int)$data['minimum'] . "', subtract = '" . (int)$data['subtract'] . "', stock_status_id = '" . (int)$data['stock_status_id'] . "', date_available = '" . $this->db->escape($data['date_available']) . "', manufacturer_id = '" . (int)$data['manufacturer_id'] . "', shipping = '" . (int)$data['shipping'] . "', price = '" . (float)$data['price'] . "', points = '" . (int)$data['points'] . "', weight = '" . (float)$data['weight'] . "', weight_class_id = '" . (int)$data['weight_class_id'] . "', length = '" . (float)$data['length'] . "', width = '" . (float)$data['width'] . "', height = '" . (float)$data['height'] . "', length_class_id = '" . (int)$data['length_class_id'] . "', status = '" . (int)$data['status'] . "', tax_class_id = '" . $this->db->escape($data['tax_class_id']) . "', sort_order = '" . (int)$data['sort_order'] . "', date_modified = NOW() WHERE product_id = '" . (int)$product_id . "'");
 
 		if (isset($data['image'])) {
-			$this->db->query("UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape(html_entity_decode($data['image'], ENT_QUOTES, 'UTF-8')) . "' WHERE product_id = '" . (int)$product_id . "'");
+			$imgarr = explode(",",$data['image']);
+			
+			$this->db->query("UPDATE " . DB_PREFIX . "product SET image = '" . $this->db->escape(html_entity_decode($imgarr[0], ENT_QUOTES, 'UTF-8')) . "' WHERE product_id = '" . (int)$product_id . "'");
+			array_shift($imgarr);
+			foreach ($imgarr as $key => $value){
+				$v1="DELETE FROM " . DB_PREFIX . "product_image WHERE image = '".$value."'";
+				$this->db->query($v1);
+				$v2="INSERT INTO " . DB_PREFIX . "product_image (product_id,image,sort_order) VALUES (".$product_id.",'".$value."',0)";
+				$this->db->query($v2);
+			}
 		}
 		
 		$language_ids = array();

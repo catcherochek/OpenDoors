@@ -1,7 +1,7 @@
 ﻿<?php
 class ControllerExtensionModuleExcelImport extends Controller {
 	private $error = array();
-
+	
 	public function index() {
 		$this->load->language('extension/module/excelimport'); //подключаем наш языковой файл
 
@@ -63,6 +63,38 @@ class ControllerExtensionModuleExcelImport extends Controller {
 	}
 
     //обязательный метод в контроллере, он запускается для проверки разрешено ли пользователю изменять настройки данного модуля
+	public function ajaxexport(){
+		// формирование заголовка
+		header('Content-Type: text/plain; charset=utf-8');
+		$this->load->model('extension/module/excelimport');
+		$ret =  $this->model_extension_module_excelimport->exportXLS();
+		$oper_ret = array(
+				'exportresult'=>true,
+				'exportresult_message'=>'Export succesfull'
+		);
+		if (!$ret){
+			$oper_ret['exportresult']=false;
+			$oper_ret['exportresult_message']='Export failed';
+		}
+		echo  json_encode($oper_ret);
+		exit;
+	}
+	public function ajaximport(){
+		// формирование заголовка
+		header('Content-Type: text/plain; charset=utf-8');
+		$this->load->model('extension/module/excelimport');
+		$ret =  $this->model_extension_module_excelimport->importXLS();
+		$oper_ret = array(
+				'exportresult'=>true,
+				'exportresult_message'=>'Export succesfull'
+		);
+		if (!$ret){
+			$oper_ret['exportresult']=false;
+			$oper_ret['exportresult_message']='Export failed';
+		}
+		echo  json_encode($oper_ret);
+		exit;
+	}
 	protected function validate() {
 		if (!$this->user->hasPermission('modify', 'module/category')) {
 			$this->error['warning'] = $this->language->get('error_permission');

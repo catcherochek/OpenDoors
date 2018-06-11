@@ -31,4 +31,31 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>plugin</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>plugin/controller_excelimport.php</name>
+			<type>1</type>
+			<location>C:/wamp/www/oc2/admin/controller/extension/module/excelimport.php</location>
+		</link>
+		<link>
+			<name>plugin/language_excelimport.php</name>
+			<type>1</type>
+			<location>C:/wamp/www/oc2/admin/language/ru-ru/extension/module/excelimport.php</location>
+		</link>
+		<link>
+			<name>plugin/module_excelimport.php</name>
+			<type>1</type>
+			<location>C:/wamp/www/oc2/admin/model/extension/module/excelimport.php</location>
+		</link>
+		<link>
+			<name>plugin/view_excelimport.tpl</name>
+			<type>1</type>
+			<location>C:/wamp/www/oc2/admin/view/template/extension/module/excelimport.tpl</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1431,6 +1431,7 @@ class ModelExtensionModuleAdaptiveimport extends Model {
 	}
 	
 	public function importXLS($type='Products', $language=1, $file = 'c:\wamp\www\oc2\admin\tempmy\1.xlsx', $settings=array('ImportLimit'=>0), $addAsNew = false) {
+		//TODO:Adaptiveimport_importxls
 		$this->language->load('extension/module/excelport');
 		if (!file_exists($file)) throw new Exception($this->language->get('excelport_file_not_exists'));
 		

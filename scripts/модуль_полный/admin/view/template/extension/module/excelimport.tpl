@@ -26,17 +26,15 @@
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-mymodul" class="form-horizontal">
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
-            <div class="col-sm-10">
-              <select name="mymodul_status" id="input-status" class="form-control">
-                <?php if ($mymodul_status) { ?>
-                <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                <option value="0"><?php echo $text_disabled; ?></option>
-                <?php } else { ?>
-                <option value="1"><?php echo $text_enabled; ?></option>
-                <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-                <?php } ?>
-              </select>
+          
+            <div id="div_export" class ="div_blocks">
+            	<H3 style="color: black; font-style: italic;text-align: center; text-decoration: underline; "  >Export</H3>
+            	<div id="btn_export" class = "btn_div">Press me</div><p> here we get progress</p>
+            </div>
+            <div id = "div_import" class = "div_blocks">
+            	<H3 style="color: black; font-style: italic;text-align: center; text-decoration: underline; " >Import</H3>
+            	<div id="btn_import"class = "btn_div">Press me</div>
+            	<p> here we get progress</p>
             </div>
           </div>
         </form>
@@ -44,4 +42,62 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+
+$(window).load(function() {
+	  
+	  var vars = window.location.search.split('&');
+	  for (var i = 0; i < vars.length; i++) {
+   	var parts = vars[i].split('=');
+  		if (parts[0] == 'token') token = parts[1];}  
+ });
+	var type;
+	var request;
+	$("#btn_export").click(function(){
+		var person = {
+	            name: "klim",
+	            address:"astreet",
+	            phone:"aphone"
+	        }
+	    $.ajax({
+	    	type: 'post',
+		    url: "index.php?token=" + token + "&route=extension/module/excelimport/ajaxexport", 
+		    dataType: 'json',
+		    data: person,
+		    success: function(result){
+		    	//var msg = JSON.parse(result);
+	        $("#div_export p").html("text comes from JS and this from PHP:" + result['returned_val']);
+	   		}
+   		});
+	   // $("#div_export p").html("text comes from JS");
+	});	
+
+</script>
+<style>
+<!--
+.div_blocks{
+float:none;
+border:2px solid black;
+margin:10px;
+background-color: grey;
+}
+.btn_div{
+float:left;
+clear:both;
+width: 100px;
+background-color: yellow;
+border:1px solid black;
+margin:5px;
+}
+.div_blocks p{
+float:both;
+color:white;
+
+}
+.btn_div:HOVER {
+	cursor: pointer;
+	background-color: white;
+}
+-->
+</style>
 <?php echo $footer; ?>

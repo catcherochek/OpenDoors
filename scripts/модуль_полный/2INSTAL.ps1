@@ -5,7 +5,7 @@ $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 
 
 Copy-Item admin  -destination ..\.. -Force -Recurse
-Copy-Item catalog  -destination ..\.. -Force -Recurse
+# Copy-Item catalog  -destination ..\.. -Force -Recurse
 
 
 (Write-Host "!!!!!СДЕЛАНО!!!, для удаления модуля запустите скрипт UNINSTAL.PS1 " -ForegroundColor "White" -NoNewLine);
