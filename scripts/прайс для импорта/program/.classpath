@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.osgi_3.12.100.v20180210-1608.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.osgi_3.12.100.v20180210-1608.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.core.commands_3.9.0.v20170530-1048.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.core.commands_3.9.0.v20170530-1048.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.equinox.common_3.9.0.v20170207-1454.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.equinox.common_3.9.0.v20170207-1454.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.core.runtime_3.13.0.v20170207-1030.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.core.runtime_3.13.0.v20170207-1030.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.text_3.6.100.v20170203-0814.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.text_3.6.100.v20170203-0814.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.swt.win32.win32.x86_64_3.106.3.v20180329-0507.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.swt.win32.win32.x86_64_3.106.3.v20180329-0507.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.jface_3.13.2.v20171022-1656.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.jface_3.13.2.v20171022-1656.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.jface.text_3.12.2.v20180112-1341.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.jface.text_3.12.2.v20180112-1341.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.ui.workbench_3.110.1.v20170704-1208.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.ui.workbench_3.110.1.v20170704-1208.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/com.ibm.icu_58.2.0.v20170418-1837.jar" sourcepath="D:/inst/eclipse-java/plugins/com.ibm.icu_58.2.0.v20170418-1837.jar"/>
+	<classpathentry kind="lib" path="D:/inst/eclipse-java/plugins/org.eclipse.ui.forms_3.7.101.v20170815-1446.jar" sourcepath="D:/inst/eclipse-java/plugins/org.eclipse.ui.forms_3.7.101.v20170815-1446.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/client-combined-3.12.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/client-combined-3.12.0.jar" sourcepath="lib/selenium/client-combined-3.12.0-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://seleniumhq.github.io/selenium/docs/api/java/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/selenium/libs/byte-buddy-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/guava-23.6-jre.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/okhttp-3.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/selenium/libs/okio-1.13.0.jar"/>
+	<classpathentry kind="lib" path="lib/poi/poi-ooxml-3.17.jar" sourcepath="lib/poi/docs/apidocs">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/wamp/www/oc2/scripts/прайс%20для%20импорта/program/lib/poi/docs/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/poi/poi-3.17.jar" sourcepath="lib/poi/docs/apidocs">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/wamp/www/oc2/scripts/прайс%20для%20импорта/program/lib/poi/docs/apidocs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/poi/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/poi/ooxml-lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/poi/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
