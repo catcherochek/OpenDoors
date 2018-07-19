@@ -1,15 +1,19 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators.DescendantIterator;
 
 public class IterableTree<V> extends NodeTree<V> {
 	Iterator iter;
+	/** устанавливает тип итератора
+	 * @param type -"asc" - ascent        "desc" = descent  "full" - full
+	 * @param n
+	 */
 	public void SetIterator(String type, Node n) {
 		if (type.equals("asc")) {
-			AscendIterator asc = new AscendIterator();
-			asc.setN(n);
+			AscendIterator asc = new AscendIterator(n);
 			iter = asc;
 		}
 		if (type.equals("desc")) {
@@ -32,26 +36,23 @@ public class IterableTree<V> extends NodeTree<V> {
 	 */
 	class AscendIterator implements Iterator{
 		private int size;
-		private int index = 0;
+		private ArrayList<Node> temparray;
 		private Node current;
-		private Node n;
-		public void setN(Node n) {
-			this.n = n;
-			this.current = n;
-		}
+		//private Node n;
+		private ArrayList<Node> stack;
 
-		
+
+		public AscendIterator(Node n) {
+			temparray = new ArrayList<Node>();
+			stack = new ArrayList<Node>();
+			//this.n = n;
+			this.current = n;
+			temparray.add(n);
+		}
 		@Override
 		public boolean hasNext() {
-			if (index == size) {
-				
-			}
-			if (index == 0) {
-			size = current.getParent().size();
-			if (size == 0) {
+			if (current==null) {//закончились все возможные варианты
 				return false;
-			}
-			
 			}
 			return true;
 			
@@ -59,8 +60,30 @@ public class IterableTree<V> extends NodeTree<V> {
 
 		@Override
 		public Node next() {
-			 			
-			return current;
+			if (current == null) {
+				return null;
+			}
+			Node ret = current;
+			stack.add(current);
+			current = null;
+			if (ret.hasParents()) {
+				temparray.addAll(ret.getParent());
+				
+			}
+			Iterator<Node>  it = temparray.iterator();
+			while (it.hasNext()) {
+				Node d = it.next();
+				if (stack.indexOf(d)==-1) {
+					current = d;
+					temparray.remove(d);
+					break;
+				}
+				else {
+					temparray.remove(d);
+				}
+			}
+			
+			return ret;
 		}
 		
 	}
