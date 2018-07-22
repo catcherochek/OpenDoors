@@ -1,9 +1,10 @@
 package tools;
 
+import java.util.ArrayList;
 
 interface Handler{
 	
-	public void ParseSheet();
+	public ArrayList<Goods> ParseSheet();
 }
 
 public class ExcelHandler {

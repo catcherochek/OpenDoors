@@ -113,11 +113,8 @@ public class main {
 				//WebDriver driver = new FirefoxDriver();
 				//driver.get("http://www.google.com");
 				*/ 
-				/*String[] out = new String[2];
-			    DialogHandler dh = new DialogHandler(new String[] { "*.xlsx", "*.*" },
-		    									new String[] { "Excel xslsx files", "All Files (*.*)" }, 
-			    									PROJECT_ROOT_PATH, 
-			    									shell);
+				
+			   /*
 			   // String str = "C:\\wamp\\www\\oc2\\scripts\\прайс для импорта\\заготовка\\шаблоны импорта\\products\\products_excelport_light_ru-ru_localhost_oc2_2018-06-05_20-56-00_0.xlsx";
 			    System.out.println("Save to: "+dh.getOut());/*
 		      // C:\wamp\www\oc2\scripts\прайс для импорта\заготовка\шаблоны импорта\products\products_excelport_full_en-gb_localhost_oc2_2018-06-19_13-52-09_0.xlsx
@@ -150,9 +147,17 @@ public class main {
 	            System.out.println("Save to: "+out[0]);
 			   	
 			*/ 
-			    
 				
-				
+				 DialogHandler dh = new DialogHandler(new String[] { "*.xlsx", "*.*" },
+		    									new String[] { "Excel xslsx files", "All Files (*.*)" }, 
+			    									PROJECT_ROOT_PATH, 
+			    									shell);
+			    //передаем файл на вход, из которого будет создаваться сам прайс лист
+				 ProductSheetHandler ps = new ProductSheetHandler(dh.getOut());
+				 ArrayList<Goods>  goodsList = ps.ParseSheet(); 
+				 OCTemplateSaver ts = new OCTemplateSaver(dh.getOut()+"_out");
+				 ts.SaveTo(goodslist);
+				 
 				
 				
 				
