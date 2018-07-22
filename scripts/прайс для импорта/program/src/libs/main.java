@@ -10,6 +10,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import tools.DialogHandler;
 import tools.ProductSheetHandler;
+import tree.IterableTree;
+import tree.Node;
 
 //import com.sun.java.util.jar.pack.Package.File;
 
@@ -22,6 +24,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.logging.ConsoleHandler;
 
@@ -105,35 +108,62 @@ public class main {
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				txtHelloworld.setText("helloworld");
+/*				txtHelloworld.setText("helloworld");
 				//System.setProperty("webdriver.gecko.driver", PROJECT_ROOT_PATH+"\\lib\\gecko\\geckodriver.exe");
 				//WebDriver driver = new FirefoxDriver();
 				//driver.get("http://www.google.com");
-				
-				String[] out = new String[2]; 
-//			    DialogHandler dh = new DialogHandler(new String[] { "*.xlsx", "*.*" },
-//		    									new String[] { "Excel xslsx files", "All Files (*.*)" }, 
-//			    									PROJECT_ROOT_PATH, 
-//			    									shell, 
-//			   									out);
-			    String str = "C:\\wamp\\www\\oc2\\scripts\\прайс для импорта\\заготовка\\шаблоны импорта\\products\\products_excelport_light_ru-ru_localhost_oc2_2018-06-05_20-56-00_0.xlsx";
-			    System.out.println("Save to: "+out[0]);
+				*/ 
+				/*String[] out = new String[2];
+			    DialogHandler dh = new DialogHandler(new String[] { "*.xlsx", "*.*" },
+		    									new String[] { "Excel xslsx files", "All Files (*.*)" }, 
+			    									PROJECT_ROOT_PATH, 
+			    									shell);
+			   // String str = "C:\\wamp\\www\\oc2\\scripts\\прайс для импорта\\заготовка\\шаблоны импорта\\products\\products_excelport_light_ru-ru_localhost_oc2_2018-06-05_20-56-00_0.xlsx";
+			    System.out.println("Save to: "+dh.getOut());/*
 		      // C:\wamp\www\oc2\scripts\прайс для импорта\заготовка\шаблоны импорта\products\products_excelport_full_en-gb_localhost_oc2_2018-06-19_13-52-09_0.xlsx
-			  //  ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_MESSAGE);
-			  //  ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_WARNING);
-			    
+			    ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_MESSAGE);
+			    ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_WARNING);
+			    IterableTree<String> itt= new IterableTree<String>();
+			    Node<String> mainn =new Node<String>("main");
+			    itt.AddRootNode(mainn);
+			    try {
+			    	Node<String> aftermain1 = new Node<String>("aftermain1");
+			    	Node<String> aftermain2 = new Node<String>("aftermain2");
+			    	Node<String> aftermain3 = new Node<String>("aftermain3");
+					itt.AddNode(aftermain1, mainn);
+					itt.AddNode(aftermain2, mainn);
+					itt.AddNode(aftermain3, mainn);
+					itt.AddNode("afteraftermain1",new ArrayList<Node>(Arrays.asList(aftermain1,aftermain2))  );
+					
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			    itt.SetIterator("asc", itt.getNode("afteraftermain1"));
+			    Iterator<Node> it = itt.iterator();
+			    while(it.hasNext()) {
+			    	Node n = it.next();
+			    	System.out.print(n.getValue());
+			    }
 			    ProductSheetHandler ps = new ProductSheetHandler(str);
 	            ps.ParseSheet();
 	            System.out.println("Save to: "+out[0]);
+			   	
+			*/ 
 			    
-			    
+				
+				
+				
+				
+				
+				
+				
 			  }
 		       
 		    
-				
 			
 		});
-		btnNewButton.setBounds(310, 577, 75, 25);
+		btnNewButton.setBounds(10, 234, 75, 25);
 		btnNewButton.setText("New Button");
 
 	}

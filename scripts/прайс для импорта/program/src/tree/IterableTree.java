@@ -79,7 +79,7 @@ public class IterableTree<V> extends NodeTree<V> {
 					break;
 				}
 				else {
-					temparray.remove(d);
+					it.remove();
 				}
 			}
 			

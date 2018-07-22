@@ -105,6 +105,23 @@ public abstract class NodeTree<V> implements Iterable   {
 		}
 	}
 		
+	/** возвращает узел 
+	 * @return
+	 */
+	public Node getNode(V v) {
+		int index = -1;
+		for(Node n:tree) {
+			if (n.getValue().equals(v)) {
+				index = tree.indexOf(n);
+				break;
+			}
+		}
+		if (index!=-1) {
+			return tree.get(index);
+		}
+		
+		return null;
+		}
 	
 	public void LinkNodes(Node n, Node nodesToLink) {
 		
