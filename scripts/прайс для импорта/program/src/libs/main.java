@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import tools.DialogHandler;
+import tools.Goods;
 import tools.ProductSheetHandler;
 import tree.IterableTree;
 import tree.Node;
@@ -154,9 +155,16 @@ public class main {
 			    									shell);
 			    //передаем файл на вход, из которого будет создаватьс€ сам прайс лист
 				 ProductSheetHandler ps = new ProductSheetHandler(dh.getOut());
-				 ArrayList<Goods>  goodsList = ps.ParseSheet(); 
+				 //получаем список товаров из этого листа
+				 
+				 //и переданм в обработчик дл€ работы с вэб
+				 
+				 Webhandler wh = new WebHandler(ps.ParseSheet());
+				  
+				 //создаем объект, сохран€ющий в шаблонный лист дл€ импорта
 				 OCTemplateSaver ts = new OCTemplateSaver(dh.getOut()+"_out");
-				 ts.SaveTo(goodslist);
+				 //сохран€ем список товаров в файл
+				 //ts.SaveTo(goodsList);
 				 
 				
 				

@@ -26,10 +26,14 @@ public class ProductSheetHandler extends ExcelHandler implements Handler {
 	//конструктор листа типа products.xslsx
 	//Pair<Integer, Integer> keyValue;
 	//private int[] goods = new int[]();
-	private HashMap<String,Pair<Integer, Integer>> datarow;
+	
 	CategoryHandler cath;
 	private final int RECORD_LENGTH = 26;
 	private ArrayList<Goods> goodsList=null;
+	
+	public ArrayList<Goods> getGoodsList() {
+		return goodsList;
+	}
 	private String fname;
 	private XSSFWorkbook myWorkBook=null;
 	private XSSFSheet productSheet;
@@ -81,11 +85,11 @@ public class ProductSheetHandler extends ExcelHandler implements Handler {
             Goods tempgoods = new Goods();
             tempgoods.name = row.getCell(0).getStringCellValue();
             tempgoods.description  = row.getCell(1).getStringCellValue();
-            tempgoods.price = row.getCell(2).getStringCellValue(); 
-            String[] temparray = row.getCell(2).getStringCellValue().split(",");
+            tempgoods.price =    row.getCell(2).toString();
+            String[] temparray = row.getCell(3).getStringCellValue().split(",");
             tempgoods.photo = new ArrayList<String>(Arrays.asList(temparray));
-            tempgoods.groupStr = row.getCell(3).getStringCellValue(); 
-            tempgoods.typeStr = row.getCell(4).getStringCellValue(); 
+            tempgoods.groupStr = row.getCell(4).getStringCellValue(); 
+            tempgoods.typeStr = row.getCell(5).getStringCellValue(); 
             goodsList.add(tempgoods);
             
 //                    Cell cell = cellIterator.next();
