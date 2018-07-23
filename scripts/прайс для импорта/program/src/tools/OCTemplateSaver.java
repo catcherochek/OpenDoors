@@ -1,8 +1,6 @@
-package libs;
+package tools;
 
 import java.util.ArrayList;
-
-import tools.Goods;
 
 /** класс сохран€ющий элемент
  * @author  лим

@@ -16,6 +16,16 @@ public class Category{
 	
 	
 	public String Category_name;
+	public String getCategory_name() {
+		return Category_name;
+	}
+
+	public void setCategory_name(String category_name) {
+		Category_name = category_name;
+	}
+	
+	public ArrayList<String> ParentCat;
+
 	public String Description;
 	public ArrayList<String> Meta_Tag_Description;
 	public ArrayList<String> Meta_Tag_Keywords;
@@ -77,6 +87,8 @@ public class Category{
 		SEO_Keyword = new  ArrayList<String>(Arrays.asList(arr));
 		//SEO_Keyword = sEO_Keyword;
 	}
+
+
 
 	
 	

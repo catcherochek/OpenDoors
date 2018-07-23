@@ -10,7 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import tools.DialogHandler;
 import tools.Goods;
+import tools.OCTemplateSaver;
 import tools.ProductSheetHandler;
+import tools.WebHandler;
 import tree.IterableTree;
 import tree.Node;
 
@@ -116,9 +118,9 @@ public class main {
 				*/ 
 				
 			   /*
-			   // String str = "C:\\wamp\\www\\oc2\\scripts\\прайс для импорта\\заготовка\\шаблоны импорта\\products\\products_excelport_light_ru-ru_localhost_oc2_2018-06-05_20-56-00_0.xlsx";
+			   // String str = "C:\\wamp\\www\\oc2\\scripts\\пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\\пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\\пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\\products\\products_excelport_light_ru-ru_localhost_oc2_2018-06-05_20-56-00_0.xlsx";
 			    System.out.println("Save to: "+dh.getOut());/*
-		      // C:\wamp\www\oc2\scripts\прайс для импорта\заготовка\шаблоны импорта\products\products_excelport_full_en-gb_localhost_oc2_2018-06-19_13-52-09_0.xlsx
+		      // C:\wamp\www\oc2\scripts\пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\products\products_excelport_full_en-gb_localhost_oc2_2018-06-19_13-52-09_0.xlsx
 			    ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_MESSAGE);
 			    ch.Log("sdfsdsg", tools.ConsoleHandler.CONSOLEHANDLER_LOGTYPE_WARNING);
 			    IterableTree<String> itt= new IterableTree<String>();
@@ -153,17 +155,17 @@ public class main {
 		    									new String[] { "Excel xslsx files", "All Files (*.*)" }, 
 			    									PROJECT_ROOT_PATH, 
 			    									shell);
-			    //передаем файл на вход, из которого будет создаваться сам прайс лист
+			    //пїЅРІР°РїРІС‹Р°РїРІС‹
 				 ProductSheetHandler ps = new ProductSheetHandler(dh.getOut());
-				 //получаем список товаров из этого листа
+				 //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+				 ps.ParseSheet();
+				 //пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ
 				 
-				 //и переданм в обработчик для работы с вэб
+				 WebHandler wh = new WebHandler();
 				 
-				 Webhandler wh = new WebHandler(ps.ParseSheet());
-				  
-				 //создаем объект, сохраняющий в шаблонный лист для импорта
+				 //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				 OCTemplateSaver ts = new OCTemplateSaver(dh.getOut()+"_out");
-				 //сохраняем список товаров в файл
+				 //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 				 //ts.SaveTo(goodsList);
 				 
 				
@@ -176,8 +178,8 @@ public class main {
 		    
 			
 		});
-		btnNewButton.setBounds(10, 234, 75, 25);
-		btnNewButton.setText("New Button");
+		btnNewButton.setBounds(10, 214, 89, 25);
+		btnNewButton.setText("РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р»");
 
 	}
 }

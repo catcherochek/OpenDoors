@@ -39,6 +39,7 @@ public class ProductSheetHandler extends ExcelHandler implements Handler {
 	private XSSFSheet productSheet;
 	public  ProductSheetHandler(String fname) {
 		super();
+		cath = new CategoryHandler();
 		goodsList = new ArrayList<Goods>();
 		File myFile = new File(fname);
         FileInputStream fis;
@@ -88,7 +89,13 @@ public class ProductSheetHandler extends ExcelHandler implements Handler {
             tempgoods.price =    row.getCell(2).toString();
             String[] temparray = row.getCell(3).getStringCellValue().split(",");
             tempgoods.photo = new ArrayList<String>(Arrays.asList(temparray));
-            tempgoods.groupStr = row.getCell(4).getStringCellValue(); 
+            tempgoods.groupStr = row.getCell(4).getStringCellValue();
+            //добавляем директорию в список
+            cath.AddDirectory(tempgoods.groupStr);
+            	
+            
+            
+            
             tempgoods.typeStr = row.getCell(5).getStringCellValue(); 
             goodsList.add(tempgoods);
             
